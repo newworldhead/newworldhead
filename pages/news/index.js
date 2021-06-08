@@ -1,7 +1,8 @@
+import Layout from '@/components/MainLayout'
 export default function NewsPage() {
     return (
-        <div>
+        <Layout>
             <h1>News</h1>
-        </div>
+        </Layout>
     )
 }

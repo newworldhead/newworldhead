@@ -1,7 +1,9 @@
+import Layout from '@/components/MainLayout'
+
 export default function DatabasePage() {
     return (
-        <div>
+        <Layout>
             <h1>Database</h1>
-        </div>
+        </Layout>
     )
 }
