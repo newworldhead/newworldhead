@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Button from '@/components/Button'
 
 export default function Header() {
     return (
@@ -9,7 +9,7 @@ export default function Header() {
                 <div className="px-4 flex items-center justify-between md:px-0">
                     <div className="py-3">
                         <Link href="/">
-                            <a className="py-3 uppercase tracking-widest">
+                            <a className="py-3 uppercase tracking-widest font-primary">
                                 New World <span className="text-blue-200">Head</span>
                             </a>
                         </Link>
@@ -35,21 +35,13 @@ export default function Header() {
                 </div>
 
                 <div className="hidden items-center md:flex md:flex-row uppercase tracking-widest">
-                    <Link href="/about">
-                        <a className="py-3 px-4 hover:bg-secondary hover:text-blue-200">About</a>
-                    </Link>
                     <Link href="/news">
                         <a className="py-3 px-4 hover:bg-secondary">News</a>
                     </Link>
-                    <Link href="/database">
-                        <a className="py-3 px-4 hover:bg-secondary">Database</a>
+                    <Link href="/companies">
+                        <a className="py-3 px-4 hover:bg-secondary">Companies</a>
                     </Link>
-                    <Link href="/contact">
-                        <a className="py-3 px-4 hover:bg-secondary">Contact</a>
-                    </Link>
-                    <Link href="/account/login">
-                        <a className="py-1 px-6 bg-blue-200 text-secondary border-2 border-blue-200 hover:bg-secondary hover:text-blue-200">Login</a>
-                    </Link>
+                    <Button type={'button'} href={'/account/login'} width={'20'} py={'1'} name={'Login'} />
                 </div>
             </nav>
         </header>

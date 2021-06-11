@@ -1,6 +1,12 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+import Footer from '@/components/Footer'
 export default function MainLayout({ title, keywords, description, children }) {
+
+    const router = useRouter()
+
     return (
         <>
             <Head>
@@ -11,7 +17,9 @@ export default function MainLayout({ title, keywords, description, children }) {
             </Head>
 
             <Header />
-            <main className="container mx-auto my-7">{children}</main>
+            {router.pathname === "/" && <Hero />}
+            <main>{children}</main>
+            <Footer />
         </>
     )
 }
