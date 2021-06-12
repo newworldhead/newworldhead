@@ -113,7 +113,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      news: newsData.slice(0, 3),
+      news: newsData.slice(0, 5),
       companies: companiesData
     }
   }

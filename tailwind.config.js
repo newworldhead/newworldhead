@@ -11,7 +11,9 @@ module.exports = {
         "hero": "url('/images/NW_The Ancients_5760x2160.jpg')",
         "page-not-found": "url('/images/RepurposedShipwreck.jpeg')",
         "section-one": "url('/images/NW_Town Life_8000x4500.jpg')",
-        "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')"
+        "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')",
+        "news-section": "url('/images/NW_Ship Fort_1920x1080.jpg')",
+        "category-section": "url('/images/Reekwater 1.jpg')"
       },
       backgroundColor: {
         "primary": "#272624",
@@ -26,7 +28,8 @@ module.exports = {
         "hero": "600px",
         "primary": "600px",
         "secondary": "500px",
-        "medium": "300px"
+        "medium": "300px",
+        "small": "200px"
       },
       borderColor: {
         "primary": "#272624",
