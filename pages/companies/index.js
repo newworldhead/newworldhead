@@ -17,7 +17,7 @@ export default function CompanyIndex({ companies }) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`${API_URL}/api/companies`)
+    const res = await fetch(`${API_URL}/companies`)
     const companies = await res.json()
 
     return {

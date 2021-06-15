@@ -14,7 +14,7 @@ export default function CompanySlug({ company }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-    const res = await fetch(`${API_URL}/api/companies/${slug}`)
+    const res = await fetch(`${API_URL}/companies?slug=${slug}`)
     const companies = await res.json()
 
     return {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-export default function Button({ type, href, width, py, px, mx, mdw, mdmx, name }) {
+export default function Button({ type, href, width, py, px, mx, mdw, mdmx, hoverBorderColor, hoverTextColor, name }) {
     return (
         <Link href={href}>
             <button type={type} className={`
@@ -10,17 +10,21 @@ export default function Button({ type, href, width, py, px, mx, mdw, mdmx, name 
                 md:w-${mdw}
                 md:mx-${mdmx}
                 rounded
+                font-secondary 
                 shadow-lg 
-                text-secondary 
+                text-white 
                 text-center
-                bg-blue-200 
-                tracking-widest 
+                text-sm
+                bg-blue-400 
+                tracking-widest
                 uppercase 
                 border-2 
-                border-blue-200 
+                border-blue-400 
                 focus:outline-none
                 hover:bg-transparent 
-                hover:text-blue-200`}
+                hover:${hoverBorderColor}
+                hover:${hoverTextColor}
+            `}
             >{name}</button>
         </Link>
     )
@@ -33,5 +37,7 @@ Button.defaultProps = {
     py: "0",
     px: "0",
     mx: "0",
+    hoverBorderColor: "text-blue-400",
+    hoverTextColor: "text-blue-400",
     name: "Home"
 }

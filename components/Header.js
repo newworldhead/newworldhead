@@ -3,14 +3,14 @@ import Button from '@/components/Button'
 
 export default function Header() {
     return (
-        <header className="bg-primary text-gray-100 shadow w-full">
+        <header className="bg-secondary text-gray-100 shadow w-full">
             <nav className="container mx-auto md:flex md:justify-between ms:items-center">
 
                 <div className="px-4 flex items-center justify-between md:px-0">
                     <div className="py-3">
                         <Link href="/">
                             <a className="py-3 uppercase tracking-widest font-primary">
-                                New World <span className="text-blue-200">Head</span>
+                                New World <span className="text-blue-400">Head</span>
                             </a>
                         </Link>
                     </div>
@@ -20,7 +20,7 @@ export default function Header() {
                             aria-label="toggle menu"
                             className="
                             text-white  
-                            hover:text-blue-300 
+                            hover:text-blue-400 
                             focus:outline-none"
                         >
                             <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
@@ -34,12 +34,12 @@ export default function Header() {
 
                 </div>
 
-                <div className="hidden items-center md:flex md:flex-row uppercase tracking-widest">
-                    <Link href="/news">
-                        <a className="py-3 px-4 hover:bg-secondary">News</a>
+                <div className="hidden items-center uppercase tracking-widest font-secondary text-sm md:flex md:flex-row ">
+                    <Link href="/posts">
+                        <a className="py-3 px-4 hover:bg-primary">News</a>
                     </Link>
                     <Link href="/companies">
-                        <a className="py-3 px-4 hover:bg-secondary">Companies</a>
+                        <a className="py-3 px-4 hover:bg-primary">Companies</a>
                     </Link>
                     <Button type={'button'} href={'/account/login'} width={'20'} py={'1'} name={'Login'} />
                 </div>

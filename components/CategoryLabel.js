@@ -3,14 +3,14 @@ import Link from 'next/link'
 export default function CategoryLabel({ children }) {
 
     const colorKey = {
-        guides: 'blue',
-        news: 'green',
-        updates: 'red',
+        Guides: 'blue-400',
+        News: 'green-600',
+        Updates: 'yellow-500',
     }
 
     return (
-        <div className={`px-2 py-1 bg-${colorKey[children]}-600 text-gray-100 font-bold rounded`}>
-            <Link href={`/category/${children.toLowerCase()}`}>
+        <div className={`px-2 py-1 bg-${colorKey[children]} text-gray-100 font-secondary tracking-wide rounded`}>
+            <Link href={`/category/${children}`}>
                 <a className="capitalize">{children}</a>
             </Link>
         </div>

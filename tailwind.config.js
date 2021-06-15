@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'primary': ['"IM Fell DW Pica"', 'Times', '"Times Roman"', '"Times New Roman"', 'serif']
+        'primary': ['"IM Fell DW Pica"', 'Times', '"Times Roman"', '"Times New Roman"', 'serif'],
+        'secondary': ['"Poppins"', 'sans-serif']
+
       },
       backgroundImage: {
         "hero-mb": "url('/images/NewWorld_MaskedHelm_HiRes_NoEmbers.jpg')",
@@ -14,6 +16,7 @@ module.exports = {
         "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')",
         "news-section": "url('/images/NW_Ship Fort_1920x1080.jpg')",
         "category-section": "url('/images/Reekwater 1.jpg')"
+
       },
       backgroundColor: {
         "primary": "#272624",

@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="bg-secondary text-gray-100 shadow w-full">
             <div className="container mx-auto flex flex-col items-center justify-between py-4 sm:flex-row">
                 <Link href="/">
-                    <a className="py-3 uppercase tracking-widest font-primary">New World <span className="text-blue-300">Head</span></a>
+                    <a className="py-3 uppercase tracking-widest font-primary">New World <span className="text-blue-400">Head</span></a>
                 </Link>
 
                 <div className="my-6">
@@ -14,7 +14,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex -mx-2">
-                    <a href="#" className="mx-2 text-white hover:text-blue-300" aria-label="Reddit">
+                    <a href="#" className="mx-2 text-white hover:text-blue-400" aria-label="Reddit">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -23,7 +23,7 @@ export default function Footer() {
                         </svg>
                     </a>
 
-                    <a href="#" className="mx-2 text-white hover:text-blue-300"
+                    <a href="#" className="mx-2 text-white hover:text-blue-400"
                         aria-label="Facebook">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ export default function Footer() {
                         </svg>
                     </a>
 
-                    <a href="#" className="mx-2 text-white hover:text-blue-300" aria-label="Github">
+                    <a href="#" className="mx-2 text-white hover:text-blue-400" aria-label="Github">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path

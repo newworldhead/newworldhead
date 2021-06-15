@@ -1,36 +1,49 @@
-import Button from '@/components/Button'
+import Link from 'next/link'
 import CategoryLabel from '@/components/CategoryLabel'
+import { formatDate } from '@/utils/date'
+import { FaRegClock, FaRegUser } from 'react-icons/fa'
 
-
-export default function RecentPost({ news }) {
-    const { title, excerpt, date, category, cover_image, slug } = news
+export default function RecentPost({ post }) {
+    const { title, author, excerpt, date, category, slug, coverimage: { formats: { medium } } } = post
 
     return (
-        <div className="mt-6 rounded-t-lg bg-white mx-2 md:mx-0 md:flex md:max-w-5xl md:shadow-lg md:rounded-l-lg">
+        <div className="mt-6 rounded-lg bg-white mx-4 md:mx-0 md:flex md:shadow-lg md:rounded-lg">
 
             <div className="md:w-1/2 flex">
-                <img className="sd:rounded-t-lg md:rounded-l-lg" src={cover_image} alt={title} />
+                <img className="rounded-lg shadow-xl" src={medium.url} alt={title} />
             </div>
 
             <div className="px-6 py-6 md:w-1/2 flex flex-col justify-between">
 
-                <h2 className="text-3xl font-primary text-gray-800 md:text-3xl">{title}</h2>
-
-                <div className="flex justify-between mt-6">
-                    <h2 className="">{date}</h2>
-                    <CategoryLabel>{category}</CategoryLabel>
+                <div className="flex justify-between">
+                    <div className="flex gap-4 uppercase text-sm tracking-wider text-primary font-secondary">
+                        <div className="flex items-center gap-2">
+                            <div>
+                                <FaRegUser />
+                            </div>
+                            <h2>{author}</h2>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div>
+                                <FaRegClock />
+                            </div>
+                            <h2>{formatDate(date)}</h2>
+                        </div>
+                    </div>
+                    <div>
+                        <CategoryLabel>{category.name}</CategoryLabel>
+                    </div>
                 </div>
-                <p className="mt-6 text-gray-600">{excerpt}</p>
+
+                <Link href={`/posts/${slug}`}>
+                    <h2 className="cursor-pointer text-3xl font-primary text-secondary mt-8 md:text-3xl border-b-0 hover:text-blue-400">{title}</h2>
+                </Link>
+                <p className="mt-6 text-sm text-gray-500 font-secondary tracking-wide">{excerpt}</p>
 
                 <div className="flex mt-6">
-                    <Button
-                        type={"button"}
-                        href={`/news/${slug}`}
-                        py={"2"}
-                        width={"full"}
-                        mdw={"40"}
-                        name={"Read More"}
-                    />
+                    <Link href={`/posts/${slug}`}>
+                        <a className="text-white text-sm font-secondary tracking-widest uppercase border-2 py-2 px-4 bg-blue-400 rounded shadow-lg border-blue-400 hover:bg-transparent hover:text-blue-400">Read More</a>
+                    </Link>
                 </div>
 
             </div>
