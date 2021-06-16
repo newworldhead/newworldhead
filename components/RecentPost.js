@@ -36,7 +36,7 @@ export default function RecentPost({ post }) {
                 </div>
 
                 <Link href={`/posts/${slug}`}>
-                    <h2 className="cursor-pointer text-3xl font-primary text-secondary mt-8 md:text-3xl border-b-0 hover:text-blue-400">{title}</h2>
+                    <h2 className="uppercase cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-2xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
                 </Link>
                 <p className="mt-6 text-sm text-gray-500 font-secondary tracking-wide">{excerpt}</p>
 

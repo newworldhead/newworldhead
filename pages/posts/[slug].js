@@ -6,8 +6,7 @@ import CategoryWidget from '@/components/CategoryWidget'
 import RecentPostWidget from '@/components/RecentPostWidget'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
-
-import ReactHtmlParser from 'react-html-parser'
+import { parse } from '@/utils/parser'
 
 export default function PostSlug({ post, allPosts, allCategories }) {
     const { title, date, category: { name }, authorimage, body, author, coverimage } = post
@@ -36,7 +35,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="mt-6 text-gray-600 font-secondary tracking-wide">{ReactHtmlParser(body)}</div>
+                            <div className="mt-6 text-gray-600 font-secondary tracking-wide">{parse(body)}</div>
                         </div>
                     </div>
 

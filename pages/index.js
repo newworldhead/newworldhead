@@ -12,7 +12,7 @@ export default function Home({ posts, companies, featured }) {
     <Layout>
 
       <Section height={'auto'} color={'primary'}>
-        <h2 className="text-white text-5xl font-primary ml-4  w-full md:ml-0">Most Recent Posts</h2>
+        <h2 className="text-white uppercase text-4xl tracking-wide font-primary ml-4 w-full md:ml-0">Most Recent Posts</h2>
 
         <div className="flex flex-col md:flex-row">
 
@@ -35,16 +35,16 @@ export default function Home({ posts, companies, featured }) {
           </div>
           <div className="hidden md:flex md:flex-col md:pt-6 md:w-1/3 h-full ">
 
-            <div className="bg-secondary shadow-xl rounded-lg ml-4 p-4 w-full">
+            {/* <div className="bg-secondary shadow-xl rounded-lg ml-4 p-4 w-full">
               <h2 className="text-4xl text-white font-primary tracking-wider mt-4 mb-4">Top Company</h2>
               {featured.map((company) =>
                 <CompanyWidget key={company.id} company={company} />
               )}
-            </div>
+            </div> */}
 
 
-            <div className="bg-secondary rounded-lg ml-4 p-4 w-full mt-4">
-              <h2 className="text-4xl text-white font-primary tracking-wider mt-4 mb-4">Recent Companies</h2>
+            <div className="bg-secondary rounded-lg ml-4 p-4 w-full">
+              <h2 className="uppercase text-3xl text-white font-primary tracking-wider mt-4 mb-4">Recent Companies</h2>
               {companies.map((company) =>
                 <CompanyWidget key={company.id} company={company} />
               )}
@@ -69,14 +69,10 @@ export async function getStaticProps() {
   const getCompanies = await fetch(`${API_URL}/companies?_sort=date:DESC&_limit=3`)
   const companies = await getCompanies.json()
 
-  const getFeatured = await fetch(`${API_URL}/companies?featured=true`)
-  const featured = await getFeatured.json()
-
   return {
     props: {
       posts,
-      companies,
-      featured
+      companies
     }
   }
 }

@@ -24,7 +24,11 @@ module.exports = {
       },
       textColor: {
         "primary": "#272624",
-        "secondary": "#232220"
+        "secondary": "#232220",
+        "syndicate": "#644464",
+        "mauraders": "#444c34",
+        "covenant": "#977234"
+
       },
       height: {
         "hero-mb": "700px",

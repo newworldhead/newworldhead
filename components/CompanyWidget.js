@@ -9,7 +9,7 @@ export default function RecentPostWidget({ company }) {
                 <div className="flex flex-row items-center gap-2  text-sm">
                     <div>
                         <Link href={`/companies/${slug}`}>
-                            <h3 className="font-primary text-3xl text-white cursor-pointer hover:text-blue-400">{name}</h3>
+                            <h3 className="font-primary  uppercase text-2xl tracking-wider text-white cursor-pointer hover:text-blue-400">{name}</h3>
                         </Link>
                         <p className={`mt-4 ${recruiting === 'yes' ? "text-green-300" : "text-red-400"}`}>Recruiting {recruiting}</p>
                         <p>{description.slice(0, 20)}...</p>
@@ -17,7 +17,7 @@ export default function RecentPostWidget({ company }) {
                 </div>
                 {fraction_image ? (
                     <Link href={`/companies/${slug}`}>
-                        <img className="w-22 shadow-xl bg-primary rounded-xl cursor-pointer hover:shadow" src={fraction_image.url} alt={factions} />
+                        <img className="w-20 h-22 shadow-xl bg-primary rounded-xl cursor-pointer hover:shadow " src={fraction_image.url} alt={factions} />
                     </Link>
                 ) : (
                     <div className="p-4 bg-blue-400 shadow-xl rounded-xl cursor-pointer text-white hover:shadow">
