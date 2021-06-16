@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import SectionGrid from '@/components/SectionGrid'
 import Section from '@/components/Section'

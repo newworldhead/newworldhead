@@ -16,5 +16,5 @@ Section.defaultProps = {
     positon: "center",
     color: "black",
     place: "center",
-    px: "10"
+    px: "0"
 }

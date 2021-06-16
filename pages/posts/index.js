@@ -3,11 +3,16 @@ import SectionPrimary from '@/components/SectionPrimary'
 import PostHighlights from '@/components/PostHighLights'
 import SectionGrid from '@/components/SectionGrid'
 import PostGrid from '@/components/PostGrid'
+import Search from '@/components/PostSearch'
 import { API_URL } from '@/config/index'
 
 export default function PostsIndex({ posts, firstThree }) {
     return (
         <MainLayout>
+
+            <div className="container mx-auto mt-10">
+                <Search />
+            </div>
 
             <SectionPrimary>
                 <PostHighlights firstThree={firstThree} />

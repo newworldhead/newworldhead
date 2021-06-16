@@ -1,13 +1,33 @@
+import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import CompanyListItem from '@/components/CompanyListItem'
+import CompaniesSearch from '@/components/CompaniesSearch'
 import { API_URL } from '@/config/index'
+import { FaUndo } from 'react-icons/fa'
+import qs from 'qs'
+
 
 export default function CompanyIndex({ companies }) {
+
+    const router = useRouter()
+
+    const handleClick = () => {
+        router.push(`/companies`)
+    }
+
     return (
         <MainLayout>
             <div className="container mx-auto">
 
-                <h1 className="font-primary text-white text-4xl uppercase mt-10">All Companies</h1>
+                <div className="flex flex-row items-center justify-between">
+                    <h1 className="font-primary text-white text-4xl uppercase mt-10">All Companies</h1>
+                    <div className="flex flex-row mt-10">
+                        <CompaniesSearch />
+                        <button onClick={handleClick} className="p-3 ml-2 bg-blue-400 text-white rounded">
+                            <FaUndo />
+                        </button>
+                    </div>
+                </div>
 
                 <div className="flex flex-col text-left w-full">
                     <div className="my-2 overflox-x-auto">
@@ -39,10 +59,26 @@ export default function CompanyIndex({ companies }) {
     )
 }
 
-export async function getServerSideProps() {
-    const res = await fetch(`${API_URL}/companies?_sort=featured:DESC`)
+export async function getServerSideProps({ query: { term } }) {
+
+    const query = qs.stringify({
+        _where: {
+            _or: [
+                { name_contains: term },
+                { description_contains: term },
+                { factions_contains: term },
+                { language_contains: term },
+                { recruiting_contains: term },
+                { playstyle_contains: term },
+                { region_contains: term },
+            ]
+        }
+    })
+
+    const res = await fetch(`${API_URL}/companies?_sort=featured:DESC,name:ASC&${query}`)
     const companies = await res.json()
 
+    console.log(companies)
     return {
         props: {
             companies

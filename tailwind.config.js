@@ -15,7 +15,8 @@ module.exports = {
         "section-one": "url('/images/NW_Town Life_8000x4500.jpg')",
         "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')",
         "news-section": "url('/images/NW_Ship Fort_1920x1080.jpg')",
-        "category-section": "url('/images/Reekwater 1.jpg')"
+        "category-section": "url('/images/Reekwater 1.jpg')",
+        "category-search": "url('/images/NW_Ancient Ruins_1920x974.jpg')"
 
       },
       backgroundColor: {
