@@ -1,14 +1,14 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import CompanyListItem from '@/components/CompanyListItem'
 import CompaniesSearch from '@/components/CompaniesSearch'
 import { API_URL } from '@/config/index'
-import { FaUndo } from 'react-icons/fa'
+import { FaUndo, FaPlus } from 'react-icons/fa'
 import qs from 'qs'
 
 
 export default function CompanyIndex({ companies }) {
-
     const router = useRouter()
 
     const handleClick = () => {
@@ -16,14 +16,19 @@ export default function CompanyIndex({ companies }) {
     }
 
     return (
-        <MainLayout>
+        <MainLayout className="relative">
+            <Link href={`/companies/creation`}>
+                <button className="absolute p-4 bg-blue-400 text-white rounded-xl shadow-xl top-36 left-32 cursor-pointer hover:shadow outline-none focus:outline-none">
+                    <FaPlus />
+                </button>
+            </Link>
             <div className="container mx-auto">
 
                 <div className="flex flex-row items-center justify-between">
                     <h1 className="font-primary text-white text-4xl uppercase mt-10">All Companies</h1>
                     <div className="flex flex-row mt-10">
                         <CompaniesSearch />
-                        <button onClick={handleClick} className="p-3 ml-2 bg-blue-400 text-white rounded">
+                        <button onClick={handleClick} className="p-3 ml-2 bg-blue-400 text-white rounded outline-none focus:outline-none">
                             <FaUndo />
                         </button>
                     </div>
@@ -75,10 +80,9 @@ export async function getServerSideProps({ query: { term } }) {
         }
     })
 
-    const res = await fetch(`${API_URL}/companies?_sort=featured:DESC,name:ASC&${query}`)
+    const res = await fetch(`${API_URL}/companies?_sort=featured:DESC,name:ASC&name_ne=${query}`)
     const companies = await res.json()
 
-    console.log(companies)
     return {
         props: {
             companies

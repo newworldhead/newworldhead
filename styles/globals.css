@@ -6,7 +6,13 @@ body {
     background-color: #272624;
 }
 
+/* Want to use somthing like this */
 .bg-stripes {
     background-image: linear-gradient(45deg, #fff 12.5%,transparent 12.5%,transparent 50%,#fff  50%,#fff  62.5%,transparent 62.5%,transparent 100%);
     background-size: 5.66px 5.66px;
+}
+
+/* CKEditor */
+.ck-editor__editable {
+    min-height: 300px;
 }
