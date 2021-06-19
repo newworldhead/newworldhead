@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
-import Editor from '@/components/Editor'
+import Quill from '@/components/Quill'
 import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
 import { useRouter } from 'next/router';
@@ -17,7 +15,6 @@ export default function CompanyAdd({ company }) {
 
     const [display, setDisplay] = useState(false)
     const [displayLogo, setDisplayLogo] = useState(false)
-    const [loading, setLoading] = useState(false);
     const [mainLoading, setMainLoading] = useState(false);
 
     const [tempCoverImage, setTempCoverImage] = useState(null)
@@ -148,10 +145,6 @@ export default function CompanyAdd({ company }) {
             router.push(`/companies/${comp.slug}`)
         }
     }
-
-    useEffect(() => {
-        setLoading(true);
-    }, []);
 
     return (
         <MainLayout>
@@ -479,14 +472,9 @@ export default function CompanyAdd({ company }) {
                             </div>
 
                             <div className="mt-10">
-                                <Editor
-                                    name="description"
-                                    value={values.description}
-                                    onChange={(data) => {
-                                        setValues({ ...values, description: data })
-                                    }}
-                                    loading={loading}
-                                />
+                                <Quill value={values.description} setValue={(data) => {
+                                    setValues({ ...values, description: data })
+                                }} />
                             </div>
 
                             <div className="my-4">

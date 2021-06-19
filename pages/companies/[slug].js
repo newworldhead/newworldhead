@@ -5,9 +5,12 @@ import { FaEnvelope, FaInfo } from 'react-icons/fa'
 import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
 
+import { useState } from 'react'
+import Quill from '@/components/Quill'
+
 export default function CompanySlug({ company }) {
     const { id, name, description, featured, factions, recruiting, region, language, playstyle, size, fraction_image, coverimage, logo } = company
-    console.log(coverimage);
+
     return (
         <MainLayout>
             <Section height={"auto"} px={"60"}>
@@ -157,9 +160,8 @@ export default function CompanySlug({ company }) {
 
                         </div>
                         <div className="my-10 pb-8">{parse(description)}</div>
+                       
                     </div>
-
-
                 </div>
             </Section>
         </MainLayout >

@@ -10,7 +10,7 @@ export default function Editor({ onChange, loading, desc, value }) {
             CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
             ClassicEditor: require("@ckeditor/ckeditor5-build-classic")
         }
-    }, [])
+    }, [editorRef])
 
     return (
         <div>
