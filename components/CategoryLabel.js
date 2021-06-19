@@ -9,7 +9,7 @@ export default function CategoryLabel({ children }) {
     }
 
     return (
-        <div className={`px-2 py-1 bg-${colorKey[children]} text-gray-100 font-secondary tracking-wide rounded`}>
+        <div className={`px-2 py-1 bg-${colorKey[children]} text-white tracking-wide rounded shadow-xl hover:shadow`}>
             <Link href={`/category/${children}`}>
                 <a className="capitalize">{children}</a>
             </Link>

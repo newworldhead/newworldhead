@@ -34,14 +34,14 @@ export default function Header() {
 
                 </div>
 
-                <div className="hidden items-center uppercase tracking-widest font-secondary text-sm md:flex md:flex-row ">
+                <div className="hidden items-center uppercase tracking-widest text-sm md:flex md:flex-row ">
                     <Link href="/posts">
                         <a className="py-3 px-4 hover:bg-primary">News</a>
                     </Link>
                     <Link href="/companies">
                         <a className="py-3 px-4 hover:bg-primary">Companies</a>
                     </Link>
-                    <Button type={'button'} href={'/account/login'} width={'20'} py={'1'} name={'Login'} />
+                    <Button type={'button'} href={'/account/login'} width={'20'} py={'2'} name={'Login'} />
                 </div>
             </nav>
         </header>

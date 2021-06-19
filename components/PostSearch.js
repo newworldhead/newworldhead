@@ -13,17 +13,15 @@ export default function PostSearchComponent() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={term}
-                    placeholder="Search Posts"
-                    onChange={(e) => setTerm(e.target.value)}
-                    className="py-2 px-2 outline-none md:w-96 rounded"
-                />
-            </form>
 
-        </div>
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={term}
+                placeholder="Search Posts"
+                onChange={(e) => setTerm(e.target.value)}
+                className="py-2 px-2 outline-none rounded w-5/6 md:w-1/3"
+            />
+        </form>
     )
 }

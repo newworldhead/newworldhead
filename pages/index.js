@@ -35,14 +35,6 @@ export default function Home({ posts, companies, featured }) {
           </div>
           <div className="hidden md:flex md:flex-col md:pt-6 md:w-1/3 h-full ">
 
-            {/* <div className="bg-secondary shadow-xl rounded-lg ml-4 p-4 w-full">
-              <h2 className="text-4xl text-white font-primary tracking-wider mt-4 mb-4">Top Company</h2>
-              {featured.map((company) =>
-                <CompanyWidget key={company.id} company={company} />
-              )}
-            </div> */}
-
-
             <div className="bg-secondary rounded-lg ml-4 p-4 w-full">
               <h2 className="uppercase text-3xl text-white font-primary tracking-wider mt-4 mb-4">Recent Companies</h2>
               {companies.map((company) =>

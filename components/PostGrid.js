@@ -16,14 +16,14 @@ export default function PostGrid({ post }) {
             <div className="px-6 pb-6 pt-3 flex flex-col justify-between">
 
                 <div className="flex justify-between my-2">
-                    <div className="flex gap-4 uppercase text-sm text-primary font-secondary tracking-wide">
+                    <div className="flex gap-4 capitalize text-sm font-semibold tracking-wide">
                         <div className="flex items-center gap-1">
                             <div>
                                 <FaRegUser />
                             </div>
                             <h2>{author}</h2>
                         </div>
-                        <div className="flex items-center text-primary gap-1">
+                        <div className="flex items-center gap-1">
                             <div>
                                 <FaRegClock />
                             </div>
@@ -34,8 +34,8 @@ export default function PostGrid({ post }) {
                         <CategoryLabel>{name}</CategoryLabel>
                     </div>
                 </div>
-                <h2 className="text-3xl text-center font-primary text-gray-800 mt-4 md:text-3xl cursor-pointer hover:text-blue-400">{title}</h2>
-                <p className="mt-6 text-gray-500 text-sm font-secondary tracking-wide">{excerpt}</p>
+                <h2 className="text-3xl text-center font-primary mt-4 tracking-wide md:text-3xl cursor-pointer hover:text-blue-400">{title}</h2>
+                <p className="mt-6 tracking-wide">{excerpt}</p>
             </div>
         </div>
     )

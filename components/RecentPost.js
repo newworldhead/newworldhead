@@ -16,7 +16,7 @@ export default function RecentPost({ post }) {
             <div className="px-6 py-6 md:w-1/2 flex flex-col justify-between">
 
                 <div className="flex justify-between">
-                    <div className="flex gap-4 uppercase text-sm tracking-wider text-primary font-secondary">
+                    <div className="flex gap-4 capitalize text-sm tracking-wider text-primary">
                         <div className="flex items-center gap-2">
                             <div>
                                 <FaRegUser />
@@ -36,13 +36,24 @@ export default function RecentPost({ post }) {
                 </div>
 
                 <Link href={`/posts/${slug}`}>
-                    <h2 className="uppercase cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-2xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
+                    <h2 className="capitalize cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-4xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
                 </Link>
-                <p className="mt-6 text-sm text-gray-500 font-secondary tracking-wide">{excerpt}</p>
+                <p className="mt-6 text text-primary tracking-wide">{excerpt}</p>
 
                 <div className="flex mt-6">
                     <Link href={`/posts/${slug}`}>
-                        <a className="text-white text-sm font-secondary tracking-widest uppercase border-2 py-2 px-4 bg-blue-400 rounded shadow-lg border-blue-400 hover:bg-transparent hover:text-blue-400">Read More</a>
+                        <a className="
+                            text-white 
+                            tracking-widest 
+                            capitalize
+                            border 
+                            py-2 
+                            px-4 
+                            bg-blue-400 
+                            rounded shadow-xl 
+                            border-blue-400 
+                            hover:shadow
+                        ">Read More</a>
                     </Link>
                 </div>
 

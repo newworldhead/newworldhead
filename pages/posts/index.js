@@ -10,7 +10,7 @@ export default function PostsIndex({ posts, firstThree }) {
     return (
         <MainLayout>
 
-            <div className="container mx-auto mt-10">
+            <div className="container mx-4 md:mx-auto mt-10">
                 <Search />
             </div>
 
@@ -32,11 +32,11 @@ export default function PostsIndex({ posts, firstThree }) {
 
 export async function getStaticProps() {
 
-    const resFirstThree = await fetch(`${API_URL}/posts?_limit=3&_sort=date:DESC`)
-    const resPosts = await fetch(`${API_URL}/posts?_sort=date:DESC&_start=3`)
+    const getFirstThree = await fetch(`${API_URL}/posts?_limit=3&_sort=date:DESC`)
+    const getAllPosts = await fetch(`${API_URL}/posts?_sort=date:DESC&_start=3`)
 
-    const firstThree = await resFirstThree.json()
-    const posts = await resPosts.json()
+    const firstThree = await getFirstThree.json()
+    const posts = await getAllPosts.json()
 
     return {
         props: {

@@ -18,7 +18,7 @@ export default function PostHighlights({ firstThree }) {
                         {index === 0 && (
                             <div className="absolute bg-black bottom-0 opacity-70 p-2 m-4">
                                 <div className="flex gap-4 uppercase text-sm text-primary tracking-wider">
-                                    <div className="flex items-center gap-2 text-white font-secondary tracking-wide">
+                                    <div className="flex items-center gap-2 text-white tracking-wide">
                                         <div>
                                             <FaRegUser />
                                         </div>
@@ -38,7 +38,7 @@ export default function PostHighlights({ firstThree }) {
                         <div className={`absolute m-2 right-0`}> <CategoryLabel>{name}</CategoryLabel></div>
 
                         <div className={`absolute bg-black mb-4 p-2 bottom-0 opacity-70 rounded-r-lg ${index === 0 && "mb-16 p-4"}`}>
-                            <h2 className={`text-3xl font-primary text-white ${index === 0 && "text-5xl"}`}>{title}</h2>
+                            <h2 className={`text-2xl font-primary text-white tracking-widest ${index === 0 && "text-4xl"}`}>{title}</h2>
                         </div>
 
 
