@@ -159,7 +159,7 @@ export default function CompanyAdd({ company }) {
 
                 <ToastContainer />
 
-                <Link href={`/companies/${company.slug}`}>
+                <Link href={`/companies`}>
                     <button
                         className="
                             bg-blue-400 

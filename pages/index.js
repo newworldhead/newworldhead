@@ -62,11 +62,11 @@ export default function Home({ posts, companies, featured }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${API_URL}/posts?_sort=date:DESC&_limit=5`)
   const posts = await res.json()
 
-  const getCompanies = await fetch(`${API_URL}/companies?_sort=date:DESC&_limit=3`)
+  const getCompanies = await fetch(`${API_URL}/companies?_sort=created_at:DESC&_limit=3&name_ne=`)
   const companies = await getCompanies.json()
 
   return {
