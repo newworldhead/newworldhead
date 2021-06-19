@@ -30,13 +30,13 @@ export default function CompanyListItem({ company, index }) {
                     {recruiting}
                 </span>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 uppercase">
                 {playstyle}
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {region}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
                 {language}
             </td>
         </tr >

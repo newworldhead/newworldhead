@@ -3,12 +3,13 @@ import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import CompanyListItem from '@/components/CompanyListItem'
 import CompaniesSearch from '@/components/CompaniesSearch'
-import { API_URL } from '@/config/index'
+import Pagination from '@/components/Pagination'
+import { API_URL, PER_PAGE } from '@/config/index'
 import { FaUndo, FaPlus } from 'react-icons/fa'
 import qs from 'qs'
 
+export default function CompanyIndex({ companies, page, companiesCount }) {
 
-export default function CompanyIndex({ companies }) {
     const router = useRouter()
 
     const handleClick = () => {
@@ -22,7 +23,7 @@ export default function CompanyIndex({ companies }) {
                     <FaPlus />
                 </button>
             </Link>
-            <div className="container mx-auto">
+            <div className="container mx-auto mb-4">
 
                 <div className="flex flex-row items-center justify-between">
                     <h1 className="font-primary text-white text-4xl uppercase mt-10">All Companies</h1>
@@ -53,18 +54,25 @@ export default function CompanyIndex({ companies }) {
                                         {companies.map((company, index) =>
                                             <CompanyListItem key={company.id} index={index} company={company} />
                                         )}
+
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <Pagination page={page} count={companiesCount} />
             </div>
         </MainLayout>
     )
 }
 
-export async function getServerSideProps({ query: { term } }) {
+export async function getServerSideProps({ query: { term, page = 1 } }) {
+
+
+    // calculate start page
+    const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE
 
     const query = qs.stringify({
         _where: {
@@ -80,12 +88,19 @@ export async function getServerSideProps({ query: { term } }) {
         }
     })
 
-    const res = await fetch(`${API_URL}/companies?_sort=featured:DESC,name:ASC&name_ne=${query}`)
-    const companies = await res.json()
+    // fetch count
+    const fetchCompaniesCount = await fetch(`${API_URL}/companies/count`)
+    const companiesCount = await fetchCompaniesCount.json()
+
+    // fetch companies
+    const fetchCompanies = await fetch(`${API_URL}/companies?_sort=featured:DESC,name:ASC&name_ne=${query}&_limit=${PER_PAGE}&_start=${start}`)
+    const companies = await fetchCompanies.json()
 
     return {
         props: {
-            companies
+            companies,
+            page: +page,
+            companiesCount
         }
     }
 }

@@ -114,7 +114,7 @@ export default function CompanyAdd({ company }) {
             return
         }
 
-        setDisplay(false)
+        setDisplayLogo(false)
         setMainLoading(false)
         toast("Logo Updated!")
     }
@@ -363,7 +363,7 @@ export default function CompanyAdd({ company }) {
                             <h1 className="text-4xl font-primary tracking-wide">Edit Your Profile</h1>
                         </div>
                     </div>
-                    
+
                     <div className="border-b-2 border-gray-100 py-2"></div>
 
                     <form onSubmit={handleSubmit} className="pb-4">

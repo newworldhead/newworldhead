@@ -110,8 +110,9 @@ export default function CompanySlug({ company }) {
                         </div>
                         <div className="flex flex-row items-center justify-between">
                             <h1 className="text-4xl font-primary tracking-wide mt-12">{name}</h1>
-                            <p className={`text-base font-bold capitalize self-end ${recruiting === 'yes' ? "text-green-300" : "text-red-400"}`}>
-                                {name}{' '}{recruiting === 'yes' ? "is" : "is not"} recruiting
+
+                            <p className={`px-4 py-2 text-base font-bold capitalize self-end tracking-wide ${recruiting === 'yes' ? "bg-green-100 text-green-500" : "bg-red-100 text-red-600"}`}>
+                                {recruiting === 'yes' ? "" : "not"} recruiting
                             </p>
                         </div>
                     </div>
