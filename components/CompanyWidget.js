@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { parse } from '@/utils/parser'
 import { FaSearch } from 'react-icons/fa'
 export default function RecentPostWidget({ company }) {
     const { slug, fraction_image, factions, name, recruiting, description } = company
@@ -12,7 +13,7 @@ export default function RecentPostWidget({ company }) {
                             <h3 className="font-primary capitalize text-2xl tracking-wider text-white cursor-pointer hover:text-blue-400">{name}</h3>
                         </Link>
                         <p className={`mt-4 mb-2 ${recruiting === 'yes' ? "text-green-300" : "text-red-400"}`}>Recruiting {recruiting}</p>
-                        <p>{description.slice(0, 20)}...</p>
+                        <p>{parse(description.slice(0, 20))}</p>
                     </div>
                 </div>
                 {fraction_image ? (

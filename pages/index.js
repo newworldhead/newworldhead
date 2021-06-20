@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Layout from '@/components/MainLayout'
 import Section from '@/components/Section'
 import RecentPost from '@/components/RecentPost'
@@ -6,7 +5,7 @@ import Button from '@/components/Button'
 import CompanyWidget from '@/components/CompanyWidget'
 import { API_URL } from '@/config/index'
 
-export default function Home({ posts, companies, featured }) {
+export default function Home({ posts, companies }) {
 
   return (
     <Layout>
@@ -41,15 +40,9 @@ export default function Home({ posts, companies, featured }) {
                 <CompanyWidget key={company.id} company={company} />
               )}
             </div>
-
           </div>
         </div>
-
       </Section>
-
-      {/* <Section image={"section-one"} height={'secondary'} positon={"center"} >
-        <h2></h2>
-      </Section> */}
     </Layout >
   )
 }

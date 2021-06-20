@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CategoryLabel from '@/components/CategoryLabel'
 import { formatDate } from '@/utils/date'
 import { FaRegClock, FaRegUser } from 'react-icons/fa'
+import { parse } from '@/utils/parser'
 
 export default function RecentPost({ post }) {
     const { title, author, excerpt, date, category, slug, coverimage: { formats: { medium } } } = post
@@ -38,7 +39,7 @@ export default function RecentPost({ post }) {
                 <Link href={`/posts/${slug}`}>
                     <h2 className="capitalize cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-4xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
                 </Link>
-                <p className="mt-6 text text-primary tracking-wide">{excerpt}</p>
+                <p className="mt-6 text text-primary tracking-wide">{parse(excerpt)}</p>
 
                 <div className="flex mt-6">
                     <Link href={`/posts/${slug}`}>

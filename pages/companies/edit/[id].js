@@ -84,7 +84,7 @@ export default function CompanyAdd({ company }) {
             return
         }
 
-        setDisplayLogo(false)
+        setDisplay(false)
         setMainLoading(false)
         toast("Cover image updated!")
     }

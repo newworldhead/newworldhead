@@ -14,13 +14,13 @@ export default function PostSearchComponent() {
 
     return (
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="md:col-start-7 md:col-end-9 mt-2">
             <input
                 type="text"
                 value={term}
                 placeholder="Search Posts"
                 onChange={(e) => setTerm(e.target.value)}
-                className="py-2 px-2 outline-none rounded w-5/6 md:w-1/3"
+                className="py-2 px-2 outline-none rounded w-full"
             />
         </form>
     )

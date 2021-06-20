@@ -16,26 +16,26 @@ export default function PostSlug({ post, allPosts, allCategories }) {
             <Section height={"auto"} place={"top"}>
 
                 <Link href="/posts">
-                    <a className="bg-blue-400 tracking-widest text-white text-sm uppercase border-2 border-blue-400 px-4 py-2 mx-4 font-secondary tracking-wide hover:text-blue-400 hover:bg-transparent md:mx-0">Go Back</a>
+                    <a className="bg-blue-400 tracking-widest text-white capitalize border border-blue-400 px-4 py-2 mx-4 rounded shadow-xl hover:shadow md:mx-0">Go Back</a>
                 </Link>
 
                 <div className="flex flex-col mx-4 md:flex-row md:mx-0">
 
                     <div className="md:w-3/4 mt-6 bg-white rounded-lg">
-                        <div className="w-full md:mx-0 md:flex md:shadow-lg shadow-xl">
+                        <div className="w-full shadow-xl md:mx-0 md:flex">
                             <img className="rounded-lg shadow-xl" src={coverimage.url} alt={title} />
                         </div>
                         <div className="p-2 md:p-6">
-                            <h2 className="text-5xl leading-snug font-primary text-gray-800 text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
+                            <h2 className="text-5xl leading-snug font-primary text-primary text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="flex flex-row justify-between items-center py-6 max-w-sm mx-auto font-secondary tracking-wide">
-                                <h2 className="">{author}</h2>
-                                <h2 className="">{formatDate(date)}</h2>
-                                <h2 className="">2 Min Read</h2>
+                            <div className="flex flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold tracking-wide">
+                                <h2>{author}</h2>
+                                <h2>{formatDate(date)}</h2>
+                                <h2>2 Min Read</h2>
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="mt-6 text-gray-600 font-secondary tracking-wide">{parse(body)}</div>
+                            <div className="mt-6 text-secondary tracking-wide">{parse(body)}</div>
                         </div>
                     </div>
 
@@ -43,17 +43,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                         <div className="h-full w-full">
                             <div className="p-4 bg-white rounded-lg md:ml-4">
 
-                                <h2 className="text-4xl font-primary tracking-wider my-4">About {author}</h2>
-                                <div className="flex flex-col items-center">
-                                    <img className="w-full rounded-lg shadow-xl hover:shadow" src={authorimage.url} alt="" />
-                                </div>
-
-                                <div className="mt-6 mb-12 font-secondary tracking-wide">
-                                    <p>Creater of New World Head and a sheep lover, Baaa!</p>
-                                </div>
-
                                 <h2 className="text-4xl font-primary tracking-wider mt-2 mb-4">Recent Posts</h2>
-
                                 {allPosts.map((post) => (
                                     <RecentPostWidget key={post.id} post={post} />
                                 ))}
