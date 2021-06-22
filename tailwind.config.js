@@ -16,7 +16,9 @@ module.exports = {
         "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')",
         "news-section": "url('/images/NW_Ship Fort_1920x1080.jpg')",
         "category-section": "url('/images/Reekwater 1.jpg')",
-        "category-search": "url('/images/NW_Ancient Ruins_1920x974.jpg')"
+        "category-search": "url('/images/NW_Ancient Ruins_1920x974.jpg')",
+        "login-section": "url('/images/keyartmask-3840.jpg')",
+        "register-section": "url('/images/baaaa.jpg')"
 
       },
       backgroundColor: {

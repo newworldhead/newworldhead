@@ -4,11 +4,17 @@ import RecentPost from '@/components/RecentPost'
 import Button from '@/components/Button'
 import CompanyWidget from '@/components/CompanyWidget'
 import { API_URL } from '@/config/index'
+import { NextSeo } from 'next-seo';
 
 export default function Home({ posts, companies }) {
 
   return (
     <Layout>
+
+      <NextSeo
+        title="Welcome to New World Head | newworldhead.com"
+        description="The best place for news and everything New World"
+      />
 
       <Section height={'auto'} color={'primary'}>
         <h2 className="text-white uppercase text-4xl tracking-wide font-primary ml-4 w-full md:ml-0">Most Recent Posts</h2>

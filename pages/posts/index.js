@@ -7,10 +7,16 @@ import PostGrid from '@/components/PostGrid'
 import Search from '@/components/PostSearch'
 import Pagination from '@/components/Pagination'
 import { API_URL, PER_PAGE } from '@/config/index'
+import { NextSeo } from 'next-seo'
 
 export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstThree, fetchedPostsCount, page }) {
     return (
         <MainLayout>
+
+            <NextSeo
+                title="New World News, Updates & Guides | newworldhead.com"
+                description="The best place for news and everything New World"
+            />
 
             <div className="container mx-4 md:mx-auto ">
                 <h1 className="font-primary text-white text-4xl uppercase mt-10">All Posts</h1>

@@ -4,15 +4,17 @@ import Section from '@/components/Section'
 import { FaEnvelope, FaInfo } from 'react-icons/fa'
 import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
-
-import { useState } from 'react'
-import Quill from '@/components/Quill'
+import { NextSeo } from 'next-seo'
 
 export default function CompanySlug({ company }) {
     const { id, name, description, featured, factions, recruiting, region, language, playstyle, size, fraction_image, coverimage, logo } = company
 
     return (
         <MainLayout>
+            <NextSeo
+                title={`Company ${name} | newworldhead.com`}
+                description="The best place for news and everything New World"
+            />
             <Section height={"auto"} px={"60"}>
 
                 <Link href="/companies">
@@ -160,7 +162,7 @@ export default function CompanySlug({ company }) {
 
                         </div>
                         <div className="my-10 pb-8">{parse(description)}</div>
-                       
+
                     </div>
                 </div>
             </Section>
@@ -169,6 +171,7 @@ export default function CompanySlug({ company }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
+    
     const res = await fetch(`${API_URL}/companies?slug=${slug}`)
     const companies = await res.json()
 

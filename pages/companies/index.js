@@ -8,6 +8,7 @@ import Pagination from '@/components/Pagination'
 import { API_URL, PER_PAGE } from '@/config/index'
 import { FaUndo, FaPlus } from 'react-icons/fa'
 import qs from 'qs'
+import { NextSeo } from 'next-seo'
 
 export default function CompanyIndex({ companies, page, companiesCount }) {
 
@@ -19,63 +20,70 @@ export default function CompanyIndex({ companies, page, companiesCount }) {
     }
 
     return (
-        <MainLayout className="relative">
 
+        <>
+            <NextSeo
+                title="New World News, Updates & Guides | newworldhead.com"
+                description="The best place for news and everything New World"
+            />
 
-            <Link href={`/companies/creation`}>
-                <button className="absolute p-4 bg-blue-400 text-white rounded-xl shadow-xl top-80 left-28 cursor-pointer hover:shadow outline-none focus:outline-none">
-                    <FaPlus />
-                </button>
-            </Link>
+            <MainLayout className="relative">
 
-            <div className="container mx-auto mb-4">
-                <div>
-                    <h1 className="font-primary text-white text-4xl uppercase mt-16 mb-10">All Companies</h1>
-                </div>
+                <Link href={`/companies/creation`}>
+                    <button className="absolute p-4 bg-blue-400 text-white rounded-xl shadow-xl top-80 left-28 cursor-pointer hover:shadow outline-none focus:outline-none">
+                        <FaPlus />
+                    </button>
+                </Link>
 
-                <div className="flex flex-col items-center justify-between md:flex-row">
-                    <CompanyFilters />
-                    <div className="flex flex-row items-end mt-4 ">
-                        <CompaniesSearch />
-                        <div className="relative">
-                            <button
-                                onClick={handleClick}
-                                className="p-3 ml-2 bg-blue-400 text-white rounded outline-none focus:outline-none">
-                                <FaUndo />
-                            </button>
-                        </div>
+                <div className="container mx-auto mb-4">
+                    <div>
+                        <h1 className="font-primary text-white text-4xl uppercase mt-16 mb-10">All Companies</h1>
                     </div>
-                </div>
 
-                <div className="flex flex-col text-left w-full">
-                    <div className="my-2 overflox-x-auto">
-                        <div className="py-2 align-middle inline-block w-full">
-                            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-
-                                <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-gray-200">
-                                        <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Name</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Recruiting</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Playstyle</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Region</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Language</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
-                                        {companies.map((company, index) =>
-                                            <CompanyListItem key={company.id} index={index} company={company} />
-                                        )}
-                                    </tbody>
-                                </table>
-
+                    <div className="flex flex-col items-center justify-between md:flex-row">
+                        <CompanyFilters />
+                        <div className="flex flex-row items-end mt-4 ">
+                            <CompaniesSearch />
+                            <div className="relative">
+                                <button
+                                    onClick={handleClick}
+                                    className="p-3 ml-2 bg-blue-400 text-white rounded outline-none focus:outline-none">
+                                    <FaUndo />
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <div className="flex flex-col text-left w-full">
+                        <div className="my-2 overflox-x-auto">
+                            <div className="py-2 align-middle inline-block w-full">
+                                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                                    <table className="min-w-full divide-y divide-gray-200">
+                                        <thead className="bg-gray-200">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Name</th>
+                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Recruiting</th>
+                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Playstyle</th>
+                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Region</th>
+                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Language</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="bg-white divide-y divide-gray-200">
+                                            {companies.map((company, index) =>
+                                                <CompanyListItem key={company.id} index={index} company={company} />
+                                            )}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Pagination link={"companies"} page={page} count={companiesCount} />
                 </div>
-                <Pagination link={"companies"} page={page} count={companiesCount} />
-            </div>
-        </MainLayout>
+            </MainLayout>
+        </>
     )
 }
 

@@ -8,6 +8,7 @@ export default function RecentPost({ post }) {
     const { title, author, excerpt, date, category, slug, coverimage: { formats: { medium } } } = post
 
     return (
+
         <div className="mt-6 rounded-lg bg-white mx-4 md:mx-0 md:flex md:shadow-lg md:rounded-lg">
 
             <div className="md:w-1/2 flex">
@@ -39,7 +40,7 @@ export default function RecentPost({ post }) {
                 <Link href={`/posts/${slug}`}>
                     <h2 className="capitalize cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-4xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
                 </Link>
-                <p className="mt-6 text text-primary tracking-wide">{parse(excerpt)}</p>
+                <div className="mt-6 text text-primary tracking-wide">{parse(excerpt)}</div>
 
                 <div className="flex mt-6">
                     <Link href={`/posts/${slug}`}>

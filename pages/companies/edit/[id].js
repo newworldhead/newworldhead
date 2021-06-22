@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
 import Quill from '@/components/Quill'
+import Loading from '@/components/Loading'
 import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CompanyAdd({ company }) {
 
@@ -34,13 +36,13 @@ export default function CompanyAdd({ company }) {
         size: company.size
     })
 
-    const handleCancel = (e) => {
+    const handleCancel = () => {
         const image = tempCoverImage
         setTempCoverImage(URL.revokeObjectURL(image));
         setDisplay(false)
     }
 
-    const handleLogoCancel = (e) => {
+    const handleLogoCancel = () => {
         const image = tempLogo
         setTempLogo(URL.revokeObjectURL(image));
         setDisplayLogo(false)
@@ -148,6 +150,11 @@ export default function CompanyAdd({ company }) {
 
     return (
         <MainLayout>
+
+            <NextSeo
+                title={`Company ${company.name} | newworldhead.com`}
+                description="The best place for news and everything New World"
+            />
             <Section height={"auto"} px={"60"}>
 
                 <ToastContainer />
@@ -515,10 +522,13 @@ export default function CompanyAdd({ company }) {
 }
 
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
     const res = await fetch(`${API_URL}/companies/${id}`)
     const company = await res.json();
 
+    console.log(req.headers.cookie);
+
+    
     return {
         props: { company }
     }

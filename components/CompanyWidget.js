@@ -13,7 +13,7 @@ export default function RecentPostWidget({ company }) {
                             <h3 className="font-primary capitalize text-2xl tracking-wider text-white cursor-pointer hover:text-blue-400">{name}</h3>
                         </Link>
                         <p className={`mt-4 mb-2 ${recruiting === 'yes' ? "text-green-300" : "text-red-400"}`}>Recruiting {recruiting}</p>
-                        <p>{parse(description.slice(0, 20))}</p>
+                        <div>{parse(description.slice(0, 20))}</div>
                     </div>
                 </div>
                 {fraction_image ? (
@@ -21,11 +21,11 @@ export default function RecentPostWidget({ company }) {
                         <img className="w-20 h-22 shadow-xl bg-primary rounded-xl cursor-pointer hover:shadow " src={name} alt={factions} />
                     </Link>
                 ) : (
-                    <div className="p-3 bg-blue-400 shadow-xl rounded-xl cursor-pointer text-white hover:shadow">
-                        <Link href={`/companies/${slug}`}>
+                    <Link href={`/companies/${slug}`}>
+                        <div className="p-3 bg-blue-400 shadow-xl rounded-xl cursor-pointer text-white hover:shadow">
                             <FaSearch />
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 )}
             </div>
         </div>

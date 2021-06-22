@@ -7,12 +7,16 @@ import RecentPostWidget from '@/components/RecentPostWidget'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
 import { parse } from '@/utils/parser'
-
+import { NextSeo } from 'next-seo'
 export default function PostSlug({ post, allPosts, allCategories }) {
     const { title, date, category: { name }, authorimage, body, author, coverimage } = post
 
     return (
         <MainLayout>
+            <NextSeo
+                title={`${post.title} | newworldhead.com`}
+                description="The best place for news and everything New World"
+            />
             <Section height={"auto"} place={"top"}>
 
                 <Link href="/posts">

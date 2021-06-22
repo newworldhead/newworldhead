@@ -1,7 +1,11 @@
+import { useContext } from 'react'
 import Link from 'next/link'
 import Button from '@/components/Button'
+import AuthContext from 'context/AuthContext'
 
 export default function Header() {
+    const { user, logout } = useContext(AuthContext)
+
     return (
         <header className="bg-secondary text-gray-100 shadow w-full">
             <nav className="container mx-auto md:flex md:justify-between ms:items-center">
@@ -41,7 +45,51 @@ export default function Header() {
                     <Link href="/companies">
                         <a className="py-3 px-4 hover:bg-primary">Companies</a>
                     </Link>
-                    <Button type={'button'} href={'/account/login'} width={'20'} py={'2'} name={'Login'} />
+                    {user ? <>
+                        <Link href="/account/profile">
+                            <a className="py-3 px-4 hover:bg-primary">Profile</a>
+                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => logout()}
+                            className="
+                                bg-blue-400
+                                py-2
+                                px-4
+                                text-white
+                                uppercase
+                                tracking-wider
+                                shadow-xl
+                                rounded
+                                border
+                                border-blue-400 
+                                focus:outline-none
+                                hover:shadow
+                            ">
+                            Logout
+                        </button>
+                    </> : <>
+                        <Link href="/account/login">
+                            <a
+                                className="
+                                    bg-blue-400
+                                    py-2
+                                    px-4
+                                    text-white
+                                    uppercase
+                                    tracking-wider
+                                    shadow-xl
+                                    rounded
+                                    border
+                                    border-blue-400 
+                                    focus:outline-none
+                                    hover:shadow
+                                ">
+                                Login
+                            </a>
+                        </Link>
+                    </>}
+
                 </div>
             </nav>
         </header>
