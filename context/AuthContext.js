@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null)
 
     const router = useRouter()
-
     useEffect(() => checkUserLoggedIn(), [])
 
     // register user
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
         if (res.ok) {
             setUser(data.user)
-            router.push('/account/profile')
+            router.push('/auth/confirm')
         } else {
             setError(data.message)
             setError(null)
@@ -51,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
         if (res.ok) {
             setUser(data.user)
-            router.push('/account/profile')
+            router.push('/profile')
         } else {
             setError(data.message)
             setError(null)
@@ -79,13 +78,6 @@ export const AuthProvider = ({ children }) => {
             setUser(data.user)
         } else {
             setUser(null)
-
-            if (router.pathname === '/account/profile' ||
-                router.pathname === '/companies/add' ||
-                router.pathname === '/companies/edit/[id]') {
-                router.push('/account/login');
-            }
-
         }
     }
 

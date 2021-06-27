@@ -1,21 +1,20 @@
 import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
-import { FaEnvelope, FaInfo } from 'react-icons/fa'
+import { FaInfo } from 'react-icons/fa'
 import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
-import { NextSeo } from 'next-seo'
 
 export default function CompanySlug({ company }) {
-    const { id, name, description, featured, factions, recruiting, region, language, playstyle, size, fraction_image, coverimage, logo } = company
+    const { id, name, description, factions, recruiting, region, language, playstyle, size, coverimage, logo } = company
 
     return (
-        <MainLayout>
-            <NextSeo
-                title={`Company ${name} | newworldhead.com`}
-                description="The best place for news and everything New World"
-            />
-            <Section height={"auto"} px={"60"}>
+        <MainLayout
+            title={`Company ${name} | newworldhead.com`}
+            description={"The best place for news and everything New World"}
+            className="relative"
+        >
+            <Section height={"full"} px={"60"}>
 
                 <Link href="/companies">
                     <button
@@ -91,27 +90,6 @@ export default function CompanySlug({ company }) {
                                     Message
                                 </a>
                             </Link>
-                            <Link href={`/companies/edit/${id}`}>
-                                <a className="
-                                    flex
-                                    flex-row
-                                    justify-center
-                                    items-center
-                                    text-white
-                                    tracking-wide
-                                    border
-                                    border-blue-400
-                                    py-2
-                                    px-4
-                                    mt-6
-                                    bg-blue-400
-                                    rounded 
-                                    shadow-xl
-                                    hover:shadow
-                                ">
-                                    Edit
-                                </a>
-                            </Link>
                         </div>
                         <div className="flex flex-row items-center justify-between">
                             <h1 className="text-4xl font-primary tracking-wide mt-12">{name}</h1>
@@ -171,7 +149,7 @@ export default function CompanySlug({ company }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-    
+
     const res = await fetch(`${API_URL}/companies?slug=${slug}`)
     const companies = await res.json()
 

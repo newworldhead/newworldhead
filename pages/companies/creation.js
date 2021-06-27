@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import { API_URL } from '@/config/index'
+import { parseCookies } from '@/helpers/index'
 import { FaSpinner } from 'react-icons/fa'
+import { formatDateForInput } from '@/utils/date'
 
-export default function CompanyCreation() {
+export default function CompanyCreation({ token }) {
 
     const router = useRouter()
 
@@ -15,7 +17,8 @@ export default function CompanyCreation() {
         recruiting: '',
         region: '',
         language: '',
-        playstyle: ''
+        playstyle: '',
+        date: formatDateForInput(new Date())
     })
 
     useEffect(() => {
@@ -30,7 +33,8 @@ export default function CompanyCreation() {
             const res = await fetch(`${API_URL}/companies`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(values)
             })
@@ -57,4 +61,54 @@ export default function CompanyCreation() {
             </div>
         </MainLayout>
     )
+}
+
+export async function getServerSideProps({ req }) {
+
+    const { token } = parseCookies(req)
+
+    // check if user is logged in, if not redirect
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/companies',
+                permanent: false,
+            },
+        }
+    }
+
+    // get a user company if they have one or not
+    const fecthACompanyBasedonThisUser = await fetch(`${API_URL}/companies/me`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    const fecthedACompanyBasedonThisUser = await fecthACompanyBasedonThisUser.json()
+
+    // check if user has already a company, if yes redirect.  A user can only have one company 
+    if (fecthedACompanyBasedonThisUser.length > 0) {
+        return {
+            redirect: {
+                destination: '/companies',
+                permanent: false,
+            },
+        }
+    }
+
+    // check if Unauthorized 
+    if (fecthedACompanyBasedonThisUser.statusCode === 401) {
+        return {
+            redirect: {
+                destination: '/auth/login',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {
+            token
+        }
+    }
 }

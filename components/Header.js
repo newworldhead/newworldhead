@@ -1,10 +1,11 @@
 import { useContext } from 'react'
 import Link from 'next/link'
-import Button from '@/components/Button'
 import AuthContext from 'context/AuthContext'
 
-export default function Header() {
+export default function Header({ cookie }) {
     const { user, logout } = useContext(AuthContext)
+
+    console.log(cookie);
 
     return (
         <header className="bg-secondary text-gray-100 shadow w-full">
@@ -46,7 +47,7 @@ export default function Header() {
                         <a className="py-3 px-4 hover:bg-primary">Companies</a>
                     </Link>
                     {user ? <>
-                        <Link href="/account/profile">
+                        <Link href="/profile">
                             <a className="py-3 px-4 hover:bg-primary">Profile</a>
                         </Link>
                         <button
@@ -69,7 +70,7 @@ export default function Header() {
                             Logout
                         </button>
                     </> : <>
-                        <Link href="/account/login">
+                        <Link href="/auth/login">
                             <a
                                 className="
                                     bg-blue-400
@@ -94,4 +95,22 @@ export default function Header() {
             </nav>
         </header>
     )
+}
+
+export async function getServerSideProps({ req }) {
+
+    const { token } = parseCookies(req)
+
+    if (token) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: { token }
+    }
 }

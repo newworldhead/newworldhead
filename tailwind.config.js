@@ -18,7 +18,10 @@ module.exports = {
         "category-section": "url('/images/Reekwater 1.jpg')",
         "category-search": "url('/images/NW_Ancient Ruins_1920x974.jpg')",
         "login-section": "url('/images/keyartmask-3840.jpg')",
-        "register-section": "url('/images/baaaa.jpg')"
+        "register-section": "url('/images/NW_Forest Archer_8000x3840.jpg')",
+        "profile-section": "url('/images/Shipping Dock.jpeg')",
+        "home-second-section": "url('/images/new_world_new_screen_02.jpg')",
+        "home-third-section": "url('/images/WOR_0120_v005_FINAL2.jpg')"
 
       },
       backgroundColor: {

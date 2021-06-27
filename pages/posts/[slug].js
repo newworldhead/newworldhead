@@ -7,23 +7,24 @@ import RecentPostWidget from '@/components/RecentPostWidget'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
 import { parse } from '@/utils/parser'
-import { NextSeo } from 'next-seo'
+
 export default function PostSlug({ post, allPosts, allCategories }) {
-    const { title, date, category: { name }, authorimage, body, author, coverimage } = post
-
+    const { title, date, category: { name }, body, author, coverimage } = post
     return (
-        <MainLayout>
-            <NextSeo
-                title={`${post.title} | newworldhead.com`}
-                description="The best place for news and everything New World"
-            />
-            <Section height={"auto"} place={"top"}>
+        <MainLayout
+            title={`${title} | newworldhead.com`}
+            description={"The best place for news and everything New World"}
+        >
 
-                <Link href="/posts">
-                    <a className="bg-blue-400 tracking-widest text-white capitalize border border-blue-400 px-4 py-2 mx-4 rounded shadow-xl hover:shadow md:mx-0">Go Back</a>
-                </Link>
+            <Section height={"auto"} place={"top"} >
 
-                <div className="flex flex-col mx-4 md:flex-row md:mx-0">
+                <div className="mt-6 md:mt-0">
+                    <Link href="/posts">
+                        <a className="bg-blue-400 tracking-widest text-white capitalize border border-blue-400 px-4 py-2 mt-6 md:mt-0 md:mx-4 rounded shadow-xl hover:shadow md:mx-0">Go Back</a>
+                    </Link>
+                </div>
+
+                <div className="flex flex-col md:mx-4 md:flex-row md:mx-0">
 
                     <div className="md:w-3/4 mt-6 bg-white rounded-lg">
                         <div className="w-full shadow-xl md:mx-0 md:flex">
@@ -39,7 +40,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="mt-6 text-secondary tracking-wide">{parse(body)}</div>
+                            <div className="mt-6 md:mx-4 text-secondary tracking-wide">{parse(body)}</div>
                         </div>
                     </div>
 

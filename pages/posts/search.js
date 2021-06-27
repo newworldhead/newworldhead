@@ -5,16 +5,13 @@ import Section from '@/components/Section'
 import PostGrid from '@/components/PostGrid'
 import { API_URL } from '@/config/index'
 import qs from 'qs'
-import { NextSeo } from 'next-seo'
 
 export default function PostsSearch({ term, searches }) {
     return (
-        <MainLayout>
-
-            <NextSeo
-                title={`Searching ${term} | newworldhead.com`}
-                description="The best place for news and everything New World"
-            />
+        <MainLayout
+            title={`Searching ${term} | newworldhead.com`}
+            description={"The best place for news and everything New World"}
+        >
 
             <Section image={"category-search"} height={'medium'} positon={"center"}>
                 <div className="flex justify-center items-center">

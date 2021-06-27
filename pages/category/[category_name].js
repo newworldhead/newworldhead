@@ -5,17 +5,13 @@ import PostGrid from '@/components/PostGrid'
 import CategoryWidget from '@/components/CategoryWidget'
 import RecentPostWidget from '@/components/RecentPostWidget'
 import { API_URL } from '@/config/index'
-import { NextSeo } from 'next-seo'
 
 export default function NewsCategoryName({ category, allCategories, allPosts }) {
-
     return (
-        <MainLayout>
-
-            <NextSeo
-                title={`Searching ${category.name} | newworldhead.com`}
-                description="The best place for news and everything New World"
-            />
+        <MainLayout
+            title={`Searching ${category.name} | newworldhead.com`}
+            description={"The best place for news and everything New World"}
+        >
 
             <Section image={"category-section"} height={'medium'} positon={"bottom"}>
                 <div className="flex justify-center items-center">

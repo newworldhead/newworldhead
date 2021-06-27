@@ -1,18 +1,16 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
 import Quill from '@/components/Quill'
-import Loading from '@/components/Loading'
+import { parseCookies } from '@/helpers/index'
 import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
-import { useRouter } from 'next/router'
-import { NextSeo } from 'next-seo'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-export default function CompanyAdd({ company }) {
-
+export default function CompanyAdd({ company, token }) {
     const router = useRouter()
 
     const [display, setDisplay] = useState(false)
@@ -133,14 +131,14 @@ export default function CompanyAdd({ company }) {
         const res = await fetch(`${API_URL}/companies/${company.id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(values)
         })
 
         if (!res.ok) {
-            toast.error("Name Already in Use")
-            console.log(res);
+            toast.error("You do not own this company :P")
             return
         } else {
             const comp = await res.json()
@@ -149,13 +147,12 @@ export default function CompanyAdd({ company }) {
     }
 
     return (
-        <MainLayout>
-
-            <NextSeo
-                title={`Company ${company.name} | newworldhead.com`}
-                description="The best place for news and everything New World"
-            />
-            <Section height={"auto"} px={"60"}>
+        <MainLayout
+            title={`Company ${company.name} | newworldhead.com`}
+            description={"The best place for news and everything New World"}
+            className="relative"
+        >
+            <Section height={"full"} px={"60"}>
 
                 <ToastContainer />
 
@@ -523,13 +520,59 @@ export default function CompanyAdd({ company }) {
 
 
 export async function getServerSideProps({ params: { id }, req }) {
-    const res = await fetch(`${API_URL}/companies/${id}`)
-    const company = await res.json();
 
-    console.log(req.headers.cookie);
+    const { token } = parseCookies(req)
 
-    
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/auth/login',
+                permanent: false,
+            },
+        }
+    }
+
+    // fetch this user
+    const fetchThisUser = await fetch(`${API_URL}/companies/me`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    const fetchedThisUser = await fetchThisUser.json()
+    console.log(fetchedThisUser);
+
+
+    // check if Unauthorized 
+    if (fetchedThisUser.statusCode === 401) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
+    console.log(fetchedThisUser.statusCode === 401);
+
+    // fetch the company by id
+    const fetchCompanyById = await fetch(`${API_URL}/companies/${id}`)
+    const fetchedCompanyById = await fetchCompanyById.json();
+
+    // if this user is not the editor of this company, redirect 
+    if (fetchedThisUser[0].user.id !== fetchedCompanyById.user.id) {
+        return {
+            redirect: {
+                destination: '/companies',
+                permanent: false,
+            },
+        }
+    }
+
     return {
-        props: { company }
+        props: {
+            token,
+            company: fetchedCompanyById
+        }
     }
 }

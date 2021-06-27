@@ -11,11 +11,11 @@ export default function RecentPost({ post }) {
 
         <div className="mt-6 rounded-lg bg-white mx-4 md:mx-0 md:flex md:shadow-lg md:rounded-lg">
 
-            <div className="md:w-1/2 flex">
+            <div className="flex">
                 <img className="rounded-lg shadow-xl" src={medium.url} alt={title} />
             </div>
 
-            <div className="px-6 py-6 md:w-1/2 flex flex-col justify-between">
+            <div className="p-6 flex flex-col justify-between">
 
                 <div className="flex justify-between">
                     <div className="flex gap-4 capitalize text-sm tracking-wider text-primary">

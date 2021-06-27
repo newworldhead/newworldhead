@@ -20,8 +20,6 @@ export default function CompanyFilters() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        console.log(term);
         router.push(`/companies?factions=${term.factions}&language=${term.language}&recruiting=${term.recruiting}&playstyle=${term.playstyle}&region=${term.region}`)
     }
 

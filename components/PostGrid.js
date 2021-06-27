@@ -34,7 +34,7 @@ export default function PostGrid({ post }) {
                         <CategoryLabel>{name}</CategoryLabel>
                     </div>
                 </div>
-                <h2 className="text-3xl text-center font-primary mt-4 tracking-wide md:text-3xl cursor-pointer hover:text-blue-400">{title}</h2>
+                <h2 className="text-3xl font-primary mt-4 tracking-wide md:text-3xl cursor-pointer hover:text-blue-400">{title}</h2>
                 <p className="mt-6 tracking-wide">{excerpt}</p>
             </div>
         </div>
