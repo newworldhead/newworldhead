@@ -26,7 +26,7 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
             <ReactTooltip />
             <div className="container mx-auto mb-4 relative">
                 <div>
-                    <h1 className="font-primary text-white text-4xl uppercase mt-16 mb-10">All Companies</h1>
+                    <h1 className="font-primary text-center text-white text-4xl uppercase mt-16 mb-10 md:text-left">All Companies</h1>
                 </div>
 
                 <div className="flex flex-col items-center justify-between md:flex-row">
