@@ -1,6 +1,7 @@
 import Link from 'next/link'
+
 export default function RecentTrackedItem({ newworldUpdates }) {
-    const { tag, title, excerpt, link, date } = newworldUpdates
+    const { tag, title, excerpt, link, date, slug } = newworldUpdates
 
     const pleaseDateGiveMeStrength = new Date(date)
 
@@ -31,7 +32,7 @@ export default function RecentTrackedItem({ newworldUpdates }) {
                 hover:shadow
             ">To Source</a>
                 </Link>
-                <Link href={link}>
+                <Link href="/tracker">
                     <a className="
                 text-white
                 tracking-wide

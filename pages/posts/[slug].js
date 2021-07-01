@@ -18,7 +18,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
 
             <Section height={"auto"} place={"top"} >
 
-                <div className="mt-6 md:mt-0">
+                <div className="mt-6">
                     <Link href="/posts">
                         <a className="bg-blue-400 tracking-widest text-white capitalize border border-blue-400 px-4 py-2 mt-6 md:mt-0 md:mx-4 rounded shadow-xl hover:shadow md:mx-0">Go Back</a>
                     </Link>

@@ -29,68 +29,21 @@ export default function Dashboard({ company, companyCount, newworldUpdates }) {
             </Section>
             <div className="container mx-auto">
 
-                <div className="border-l-4 border-blue-400 bg-secondary p-4 mt-6 text-white relative rounded-xl">
+                <div className="border-l-4 border-blue-400 bg-secondary p-4 mt-6 text-white relative">
                     <p>Found an issue, please get in touch @Discord <span className="text-blue-400">S.O.L.I.D#6796</span></p>
                 </div>
 
                 <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative rounded-xl">
+                    <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative">
                         <h2 className="text-white text-3xl font-primary">Profile Info</h2>
                         <ProfileInformation user={user} />
                         <div className="border border-green-400 inline-block px-3 py-2 absolute top-4 right-4 tracker-wide rounded">
                             <p className="text-green-400">{user && user.role.name}</p>
                         </div>
                     </div>
-                    <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative rounded-xl">
+                    <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative">
                         <h2 className="text-white text-3xl font-primary ">Company Information</h2>
                         <CompanyInformation company={company} companyCount={companyCount} />
-                    </div>
-                    <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative rounded-xl">
-                        <h2 className="text-white text-3xl font-primary">New World Latest</h2>
-                        <div className="mt-6">
-                            {newworldUpdates.map((post) => (
-                                <DisplayNewsItem key={post.id} post={post} />
-                            ))}
-                        </div>
-
-                        <div className="border-b border-gray-200"></div>
-                        <div className="flex flex-row justify-between">
-                            <Link href={'/'}>
-                                <a
-                                    className="
-                                mt-4
-                                px-4
-                                py-2
-                                bg-blue-400
-                                inline-block
-                                rounded
-                                shadow-xl
-                                hover:shadow
-                            "
-                                >Find More New World</a>
-                            </Link>
-                            {/* 
-                            {user && user.username == 'Admin'} {
-                                <form onSubmit={handleSubmit}>
-                                    <button
-                                        type="submit"
-                                        className="
-                                    mt-4
-                                    px-4
-                                    py-2
-                                    bg-blue-400
-                                    inline-block
-                                    rounded
-                                    shadow-xl
-                                    hover:shadow
-                                    "
-                                    >
-                                        Check for updates
-                                    </button>
-                                </form>
-                            } */}
-
-                        </div>
                     </div>
                 </div>
             </div>
