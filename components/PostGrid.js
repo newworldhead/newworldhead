@@ -7,13 +7,13 @@ export default function PostGrid({ post }) {
 
     const { slug, title, date, category: { name }, excerpt, author, coverimage: { formats: { medium } } } = post
     return (
-        <div className={`rounded-lg bg-white mx-4 md:mx-0 md:mt-0 md:flex flex-col md:shadow-lg md:rounded-lg"}`}>
+        <div className={`rounded-lg bg-secondary text-white mx-4 md:mx-0 md:mt-0 md:flex flex-col md:shadow-lg md:rounded-lg"}`}>
             <Link href={`/posts/${slug}`}>
                 <div className="md:w-full">
                     <img className="rounded-lg shadow-xl cursor-pointer" src={medium.url} alt={"Hmm"} />
                 </div>
             </Link>
-            <div className="px-6 pb-6 pt-3 flex flex-col justify-between">
+            <div className="px-6 pb-6 pt-3 flex flex-col justify-between text-white">
 
                 <div className="flex justify-between my-2">
                     <div className="flex gap-4 capitalize text-sm font-semibold tracking-wide">

@@ -8,7 +8,7 @@ export default function CompanyListItem({ company, index }) {
             <Head>
                 <meta property="og:title" content="My new title" key="title" />
             </Head>
-            <tr className={`${(index % 2 == 1) && "bg-gray-100"}`}>
+            <tr className={`bg-primary`}>
                 <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
@@ -17,14 +17,14 @@ export default function CompanyListItem({ company, index }) {
                                 alt={name} />
                         </div>
                         <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900 cursor-pointer hover:text-blue-400">
+                            <div className="text-lg font-medium text-white cursor-pointer hover:text-blue-400">
                                 <Link href={`/companies/${slug}`}>
                                     {name}
                                 </Link>
                             </div>
                             <div>
                                 <CompanyColorLabel>
-                                    {factions}
+                                    {factions.toLowerCase()}
                                 </CompanyColorLabel>
                             </div>
                         </div>
@@ -35,13 +35,13 @@ export default function CompanyListItem({ company, index }) {
                         {recruiting}
                     </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 uppercase">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white uppercase">
                     {playstyle}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                     {region}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white capitalize">
                     {language}
                 </td>
             </tr >

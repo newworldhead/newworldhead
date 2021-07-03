@@ -47,19 +47,19 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                 <div className="flex flex-col text-left w-full">
                     <div className="my-2 overflox-x-auto">
                         <div className="py-2 align-middle inline-block w-full">
-                            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <div className="shadow overflow-hidden border-b border-gray-400">
 
-                                <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-gray-200">
+                                <table className="min-w-full divide-y divide-gray-400">
+                                    <thead className="bg-primary">
                                         <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Name</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Recruiting</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Playstyle</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Region</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-widest">Language</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Name</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Recruiting</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Playstyle</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Region</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Language</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
+                                    <tbody className="bg-white divide-y divide-gray-400">
                                         {companies.map((company, index) =>
                                             <CompanyListItem key={company.id} index={index} company={company} />
                                         )}

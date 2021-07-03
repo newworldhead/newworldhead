@@ -30,8 +30,8 @@ export default function NewsCategoryName({ category, allCategories, allPosts }) 
                     </div>
                 </div>
 
-                <div className="hidden md:w-1/4 md:block">
-                    <div className="bg-white rounded-lg ml-4 p-4">
+                <div className="hidden my-4 md:w-1/4 md:block">
+                    <div className="bg-secondary rounded-lg ml-4 p-4 text-white">
 
                         <h2 className="text-4xl font-primary tracking-wider mt-8 mb-4">Categories</h2>
                         {allCategories.map((category) => (

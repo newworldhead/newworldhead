@@ -34,7 +34,7 @@ export default function CompanyInformation({ company, companyCount }) {
                     </div>
                 </div>
             ) : (
-                <div>
+                <div className="flex flex-col md:gap-4 md:mt-4 md:flex-row">
                     <Link href={`/companies/edit/${company[0].id}`}>
                         <a
                             className="
@@ -43,8 +43,25 @@ export default function CompanyInformation({ company, companyCount }) {
                                 py-2
                                 bg-blue-400
                                 inline-block
+                                rounded
+                                shadow-xl
+                                hover:shadow
                             "
                         >Edit Company</a>
+                    </Link>
+                    <Link href={`/`}>
+                        <a
+                            className="
+                                mt-4
+                                px-4
+                                py-2
+                                bg-red-400
+                                inline-block
+                                rounded
+                                shadow-xl
+                                hover:shadow
+                            "
+                        >Delete Company</a>
                     </Link>
                 </div>
             )}

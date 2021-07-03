@@ -28,7 +28,7 @@ export default function CompanyFilters() {
         <form onSubmit={handleSubmit} className="hidden md:flex">
 
             <div className="flex flex-col items-center md:flex-row">
-                <div className="flex flex-row items-center  justify-end md:gap-4">
+                <div className="flex flex-row items-center  justify-end md:gap-x-4">
 
                     {/* faction selection */}
                     <div className="flex flex-col">

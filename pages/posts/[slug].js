@@ -24,7 +24,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                     </Link>
                 </div>
 
-                <div className="flex flex-col md:mx-4 md:flex-row md:mx-0">
+                <div className="flex flex-col mb-4 md:mx-4 md:flex-row md:mx-0">
 
                     <div className="md:w-3/4 mt-6 bg-white rounded-lg">
                         <div className="w-full shadow-xl md:mx-0 md:flex">
@@ -46,7 +46,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
 
                     <div className="md:w-1/4 mt-6">
                         <div className="h-full w-full">
-                            <div className="p-4 bg-white rounded-lg md:ml-4">
+                            <div className="p-4 bg-secondary text-white md:ml-4">
 
                                 <h2 className="text-4xl font-primary tracking-wider mt-2 mb-4">Recent Posts</h2>
                                 {allPosts.map((post) => (

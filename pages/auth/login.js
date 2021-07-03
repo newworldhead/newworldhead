@@ -105,7 +105,7 @@ export default function LoginAuth() {
 
                                     {/* forgot password */}
                                     <div className="flex flex-row justify-end">
-                                        <Link href="/">
+                                        <Link href="/auth/forgot-password">
                                             <a className="mt-2 capitalize text-sm tracking-wide font-semibold hover:text-blue-400">forgot password?</a>
                                         </Link>
                                     </div>
@@ -179,7 +179,7 @@ export default function LoginAuth() {
 }
 
 export async function getServerSideProps({ req }) {
-        
+
     const { token } = parseCookies(req)
 
     if (token) {

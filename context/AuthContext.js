@@ -7,6 +7,7 @@ const AuthContext = createContext()
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [error, setError] = useState(null)
+    const [message, setMessage] = useState(null)
 
     const router = useRouter()
     useEffect(() => checkUserLoggedIn(), [])
@@ -57,6 +58,7 @@ export const AuthProvider = ({ children }) => {
         }
 
     }
+
     // logout user
     const logout = async () => {
         const res = await fetch(`${NEXT_URL}/api/logout`, {
@@ -66,6 +68,52 @@ export const AuthProvider = ({ children }) => {
         if (res.ok) {
             setUser(null)
             router.push('/')
+        }
+    }
+
+    // forgot password
+    const forgotPassword = async (email) => {
+        const res = await fetch(`${NEXT_URL}/api/forgotPassword`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(email)
+        })
+
+        const data = await res.json()
+
+        if (res.ok) {
+            setMessage(data.message)
+            setMessage(null)
+        } else {
+            setError(data.message)
+            setError(null)
+        }
+    }
+
+    // reset password
+    const resetPassword = async ({ code, password, confirmPassword }) => {
+        const res = await fetch(`${NEXT_URL}/api/resetPassword`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                code,
+                password,
+                confirmPassword
+            })
+        })
+
+        const data = await res.json()
+
+        if (res.ok) {
+            setMessage(data.message)
+            setMessage(null)
+        } else {
+            setError(data.message)
+            setError(null)
         }
     }
 
@@ -87,7 +135,10 @@ export const AuthProvider = ({ children }) => {
             error,
             register,
             login,
-            logout
+            logout,
+            forgotPassword,
+            resetPassword,
+            message
         }}>
             {children}
         </AuthContext.Provider>

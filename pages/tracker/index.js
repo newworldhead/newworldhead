@@ -20,7 +20,7 @@ export default function TrackerIndex({ updates }) {
 export async function getServerSideProps() {
 
     // fetch new world updates from website
-    const fetchNewWorldUpdates = await fetch(`${API_URL}/updaters`)
+    const fetchNewWorldUpdates = await fetch(`${API_URL}/scraper`)
     const fetchedNewWorldUpdates = await fetchNewWorldUpdates.json()
 
     return {

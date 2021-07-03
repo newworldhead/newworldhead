@@ -1,8 +1,9 @@
 export default function CompanyColorLabel({ children }) {
 
     const colorKey = {
+        undecided: 'undecided',
         syndicate: 'syndicate',
-        mauraders: 'mauraders',
+        marauders: 'marauders',
         covenant: 'covenant',
     }
 

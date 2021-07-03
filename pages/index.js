@@ -112,8 +112,8 @@ export async function getServerSideProps() {
   const getCompanies = await fetch(`${API_URL}/companies?_sort=created_at:DESC&_limit=24&name_ne=`)
   const companies = await getCompanies.json()
 
-  // fetch new world updates from website
-  const fetchNewWorldUpdates = await fetch(`${API_URL}/updaters`)
+  // fetch New World updates
+  const fetchNewWorldUpdates = await fetch(`${API_URL}/scraper`)
   const fetchedNewWorldUpdates = await fetchNewWorldUpdates.json()
 
   // get fetchedNewWorldUpdates based on tag 
@@ -124,7 +124,7 @@ export async function getServerSideProps() {
       posts: posts,
       companies,
       newworldUpdates: fetchedNewWorldUpdates,
-      tag: fetchedNewWorldUpdatesBasedOnTag
+      tag: fetchedNewWorldUpdatesBasedOnTag || []
     }
   }
 }

@@ -31,8 +31,9 @@ module.exports = {
       textColor: {
         "primary": "#272624",
         "secondary": "#232220",
+        "undecided": "#b44141",
         "syndicate": "#644464",
-        "mauraders": "#444c34",
+        "marauders": "#8eb441",
         "covenant": "#977234"
 
       },
@@ -51,7 +52,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderColor: ['last']
+    },
   },
   plugins: [],
 }

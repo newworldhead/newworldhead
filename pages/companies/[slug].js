@@ -6,7 +6,7 @@ import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
 
 export default function CompanySlug({ company }) {
-    const { id, name, description, factions, recruiting, region, language, playstyle, size, coverimage, logo } = company
+    const { name, description, factions, recruiting, region, language, playstyle, size, coverimage, logo } = company
 
     return (
         <MainLayout
