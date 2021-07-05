@@ -5,8 +5,8 @@ export default function CompanyListItem({ company }) {
     const { logo, name, factions, slug, recruiting, playstyle, region, language } = company
     return (
         <>
-            <tr className={`bg-primary`}>
-                <td className="px-6 py-4 whitespace-nowrap">
+            <tr className={`flex items-center bg-primary`}>
+                <td className="flex-1 px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
                             <img className="h-10 w-10 rounded-full"
@@ -27,18 +27,18 @@ export default function CompanyListItem({ company }) {
                         </div>
                     </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="flex-1 px-6 py-4 whitespace-nowrap">
                     <span className={`capitalize px-4 py-1 inline-flex text-xs leading-5 font-semibold rounded ${recruiting === 'yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} `}>
                         {recruiting}
                     </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-white uppercase">
+                <td className="flex-1 px-6 py-4 whitespace-nowrap text-sm text-white uppercase">
                     {playstyle}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white">
                     {region}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-white capitalize">
+                <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white capitalize">
                     {language}
                 </td>
             </tr >
