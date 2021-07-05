@@ -60,16 +60,17 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-400">
-                                        {companies.map((company, index) =>
-                                            <CompanyListItem key={company.id} index={index} company={company} />
+                                        {companies.map((company) =>
+                                            <CompanyListItem key={company.id} companiesCount={companiesCount} company={company} />
                                         )}
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {!companiesCount && <h2 className="text-white text-lg text-center capitalize">Sorry Nothing could be found...</h2>}
                 <Pagination link={"companies"} page={page} count={companiesCount} />
             </div>
         </MainLayout>

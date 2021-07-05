@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import CompanyColorLabel from './CompanyColorLabel'
-export default function CompanyListItem({ company, index }) {
+export default function CompanyListItem({ company }) {
     const { logo, name, factions, slug, recruiting, playstyle, region, language } = company
     return (
         <>
-            <Head>
-                <meta property="og:title" content="My new title" key="title" />
-            </Head>
             <tr className={`bg-primary`}>
                 <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
