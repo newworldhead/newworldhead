@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import dynamic from "next/dynamic";
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import CompanyListItem from '@/components/CompanyListItem'
@@ -7,11 +7,14 @@ import CompanyFilters from '@/components/CompanyFilters'
 import Pagination from '@/components/Pagination'
 import { API_URL, PER_PAGE } from '@/config/index'
 import { parseCookies } from '@/helpers/index'
-import { FaUndo, FaPlus } from 'react-icons/fa'
-import ReactTooltip from 'react-tooltip';
+import { FaUndo } from 'react-icons/fa'
 import qs from 'qs'
 
 export default function CompanyIndex({ companies, page, companiesCount, userHasCompany }) {
+
+    const ReactTooltip = dynamic(() => import("react-tooltip"), {
+        ssr: false,
+    });
 
     const router = useRouter()
     const handleClick = () => {
