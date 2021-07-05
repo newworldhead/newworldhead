@@ -2,19 +2,22 @@ import Link from 'next/link'
 
 export default function Footer() {
     return (
-        <footer className="bg-secondary text-gray-100 shadow w-full">
-            <div className="container mx-auto flex flex-col items-center justify-between py-4 sm:flex-row">
+        <footer className="bg-secondary text-gray-100 shadow w-full p-4">
+            <div className="container mx-auto flex flex-col items-left justify-between items-center sm:flex-row">
+
                 <Link href="/">
-                    <a className="py-3 uppercase tracking-widest font-primary">New World <span className="text-blue-400">Head</span></a>
+                    <a className="mt-6 uppercase tracking-widest font-primary text-2xl">New World <span className="text-blue-400">Head</span></a>
                 </Link>
 
-                <div className="my-6">
-                    <p className="text-white mt-2 text-center px-4"> &copy; 2021 New World Head - New World is a trademark of Amazon Game Studios.</p>
-                    <p className="text-white mt-2 text-center px-4"> We are not affiliated with or endorsed by Amazon Game Studios.</p>
+                <div className="flex flex-col text-white gap-2 mt-6 items-center">
+                    <p>New World is a trademark of Amazon Game Studios.</p>
+                    <p className="w-full text-center">New World Head are not affiliated with or endorsed by Amazon Game Studios.</p>
+                    <p className="mt-6 md:mt-0">&copy; 2021 New World Head</p>
                 </div>
 
-                <div className="flex -mx-2">
-                    <a href="#" className="mx-2 text-white hover:text-blue-400" aria-label="Reddit">
+                <div className="flex flex-row items-center gap-2 mt-2">
+
+                    <a href="#" className="text-white hover:text-blue-400" aria-label="Reddit">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -23,7 +26,7 @@ export default function Footer() {
                         </svg>
                     </a>
 
-                    <a href="#" className="mx-2 text-white hover:text-blue-400"
+                    <a href="#" className="text-white hover:text-blue-400"
                         aria-label="Facebook">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +36,7 @@ export default function Footer() {
                         </svg>
                     </a>
 
-                    <a href="#" className="mx-2 text-white hover:text-blue-400" aria-label="Github">
+                    <a href="#" className="text-white hover:text-blue-400" aria-label="Github">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
