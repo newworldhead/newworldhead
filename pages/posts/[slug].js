@@ -6,10 +6,14 @@ import CategoryWidget from '@/components/CategoryWidget'
 import RecentPostWidget from '@/components/RecentPostWidget'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
-import { parse } from '@/utils/parser'
+import { parse, timeByWordCount } from '@/utils/index'
 
 export default function PostSlug({ post, allPosts, allCategories }) {
     const { title, date, category: { name }, body, author, coverimage } = post
+
+    // counting the word count
+    const timeToRead = timeByWordCount(body)
+
     return (
         <MainLayout
             title={`${title} | newworldhead.com`}
@@ -36,11 +40,11 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                             <div className="flex flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold tracking-wide">
                                 <h2>{author}</h2>
                                 <h2>{formatDate(date)}</h2>
-                                <h2>2 Min Read</h2>
+                                <h2>{timeToRead} Min Read</h2>
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="mt-6 md:mx-4 text-secondary tracking-wide">{parse(body)}</div>
+                            <div id="article" className="mt-6 md:mx-4 text-secondary tracking-wide">{parse(body)}</div>
                         </div>
                     </div>
 

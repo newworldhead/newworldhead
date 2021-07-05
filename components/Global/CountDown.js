@@ -59,19 +59,19 @@ export default function CountDown() {
                 <p>New World Beta Starts in: </p>
             </div>
             <div className="flex flex-row gap-2">
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-1">
                     <p>{timerDays}</p>
                     <p>days</p>
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-1">
                     <p>{timerHours}</p>
                     <p>hours</p>
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-1">
                     <p>{timerMinutes}</p>
                     <p>minutes</p>
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-1">
                     <p>{timerSeconds}</p>
                     <p>seconds!</p>
                 </div>

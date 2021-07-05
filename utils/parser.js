@@ -9,8 +9,9 @@ export function parse(string) {
         headerPrefix: true
     })
 
+    // Mot using for the lastest update
     const markedString = marked(string)
-    const htmlParser = htmlReactParser(markedString)
+    const htmlParser = htmlReactParser(string)
 
     return htmlParser
 }

@@ -9,19 +9,18 @@ module.exports = {
 
       },
       backgroundImage: {
-        "hero-mb": "url('/images/NewWorld_MaskedHelm_HiRes_NoEmbers.jpg')",
-        "hero": "url('/images/NW_The Ancients_5760x2160.jpg')",
-        "page-not-found": "url('/images/RepurposedShipwreck.jpeg')",
-        "section-one": "url('/images/NW_Town Life_8000x4500.jpg')",
-        "companies-section": "url('/images/Bosses Day Solo Take 2 18.jpg')",
-        "news-section": "url('/images/NW_Ship Fort_1920x1080.jpg')",
-        "category-section": "url('/images/Reekwater 1.jpg')",
-        "category-search": "url('/images/NW_Ancient Ruins_1920x974.jpg')",
-        "login-section": "url('/images/keyartmask-3840.jpg')",
-        "register-section": "url('/images/NW_Forest Archer_8000x3840.jpg')",
-        "profile-section": "url('/images/Shipping Dock.jpeg')",
-        "home-second-section": "url('/images/new_world_new_screen_02.jpg')",
-        "home-third-section": "url('/images/WOR_0120_v005_FINAL2.jpg')"
+        "hero": "url('/images/backgroundImages/NW_The Ancients_5760x2160.jpg')",
+        "page-not-found": "url('/images/backgroundImages/RepurposedShipwreck.jpeg')",
+        "section-one": "url('/images/backgroundImages/NW_Town Life_8000x4500.jpg')",
+        "companies-section": "url('/images/backgroundImages/Bosses Day Solo Take 2 18.jpg')",
+        "news-section": "url('/images/backgroundImages/NW_Ship Fort_1920x1080.jpg')",
+        "category-section": "url('/images/backgroundImages/Reekwater 1.jpg')",
+        "category-search": "url('/images/backgroundImages/NW_Ancient Ruins_1920x974.jpg')",
+        "login-section": "url('/images/backgroundImages/keyartmask-3840.jpg')",
+        "register-section": "url('/images/backgroundImages/NW_Forest Archer_8000x3840.jpg')",
+        "profile-section": "url('/images/backgroundImages/Shipping Dock.jpeg')",
+        "home-second-section": "url('/images/backgroundImages/new_world_new_screen_02.jpg')",
+        "home-third-section": "url('/images/backgroundImages/WOR_0120_v005_FINAL2.jpg')"
 
       },
       backgroundColor: {

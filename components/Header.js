@@ -4,9 +4,6 @@ import AuthContext from 'context/AuthContext'
 
 export default function Header({ cookie }) {
     const { user, logout } = useContext(AuthContext)
-
-    console.log(cookie);
-
     return (
         <header className="bg-secondary text-gray-100 shadow w-full">
             <nav className="container mx-auto md:flex md:justify-between ms:items-center">

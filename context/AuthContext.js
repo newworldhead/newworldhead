@@ -5,6 +5,7 @@ import { NEXT_URL } from '../config/index'
 const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
+
     const [user, setUser] = useState(null)
     const [error, setError] = useState(null)
     const [message, setMessage] = useState(null)
@@ -116,7 +117,7 @@ export const AuthProvider = ({ children }) => {
             setError(null)
         }
     }
-
+    
     // check if user is logeed in
     const checkUserLoggedIn = async (user) => {
         const res = await fetch(`${NEXT_URL}/api/user`)
@@ -133,12 +134,12 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider value={{
             user,
             error,
+            message,
             register,
             login,
             logout,
             forgotPassword,
-            resetPassword,
-            message
+            resetPassword
         }}>
             {children}
         </AuthContext.Provider>

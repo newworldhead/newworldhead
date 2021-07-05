@@ -1,6 +1,6 @@
-export default function Section({ image, height, color, positon, place, px, children }) {
+export default function Section({ image, height, color, positon, attachment, place, px, children }) {
     return (
-        <section className={`bg-${image} h-${height} bg-${positon} bg-cover bg-no-repeat bg-fixed`}>
+        <section className={`bg-${image} h-${height} bg-${positon} bg-cover bg-no-repeat bg-${attachment}`}>
             <div className={`bg-${color} bg-opacity-0 h-full w-full flex items-${place}`}>
                 <div className={`container mx-auto px-4  md:px-${px} relative`}>
                     {children}
@@ -16,5 +16,6 @@ Section.defaultProps = {
     positon: "center",
     color: "black",
     place: "center",
-    px: "0"
+    px: "0",
+
 }
