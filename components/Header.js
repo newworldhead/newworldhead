@@ -2,12 +2,11 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import AuthContext from 'context/AuthContext'
 
-export default function Header({ cookie }) {
+export default function Header({ toggle, setToggle }) {
     const { user, logout } = useContext(AuthContext)
     return (
         <header className="bg-secondary text-gray-100 shadow w-full">
             <nav className="container mx-auto md:flex md:justify-between ms:items-center">
-
                 <div className="px-4 flex items-center justify-between md:px-0">
                     <div className="py-3">
                         <Link href="/">
@@ -18,6 +17,7 @@ export default function Header({ cookie }) {
                     </div>
                     <div className="flex md:hidden">
                         <button
+                            onClick={() => setToggle(!toggle)}
                             type="button"
                             aria-label="toggle menu"
                             className="
@@ -108,6 +108,6 @@ export async function getServerSideProps({ req }) {
     }
 
     return {
-        props: { token }
+        props: {}
     }
 }

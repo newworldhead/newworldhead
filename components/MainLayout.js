@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import CountDown from './Global/CountDown'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
+import MobileDrop from './MobileDrop'
 export default function MainLayout({ title, keywords, description, children }) {
+
+    const [toggle, setToggle] = useState(false)
+
     const router = useRouter()
     return (
         <div>
@@ -15,7 +20,8 @@ export default function MainLayout({ title, keywords, description, children }) {
             </Head>
             <div className="flex flex-col h-screen">
                 <CountDown />
-                <Header />
+                <Header toggle={toggle} setToggle={setToggle} />
+                <MobileDrop toggle={toggle} />
                 {router.pathname === "/" && <Hero />}
                 <main className="flex-grow">{children}</main>
                 <Footer />
