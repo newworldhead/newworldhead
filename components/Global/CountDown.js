@@ -45,18 +45,21 @@ export default function CountDown() {
         <section className="
             bg-blue-400
             w-full 
-            py-1 
+            py-2
+            md:py-1 
             text-white 
-            flex 
-            flex-row 
-            gap-2 
+            flex
+            flex-col 
+            md:flex-row 
+            gap-1
+            md:gap-2 
             capitalize
             tracking-wide
             items-center 
             justify-center
             ">
             <div>
-                <p>New World Beta Starts in: </p>
+                <p>New World Beta Starts in </p>
             </div>
             <div className="flex flex-row gap-2">
                 <div className="flex flex-row gap-1">
