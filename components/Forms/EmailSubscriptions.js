@@ -11,30 +11,24 @@ export default function EmailSubscriptions() {
         e.preventDefault()
 
         if (email === '') {
-            toast('Email must not be empty')
+            toast.error('Email must not be empty')
             return
         }
 
-        const payload = {
-            email: email
-        }
-
-        const response = await fetch(`${API_URL}/email-subscriptions`, {
+        const response = await fetch(`${API_URL}/subscriptions`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ email })
         })
-
 
         if (response.ok) {
             toast('Thank You for Subcribing!')
         } else {
-            toast.error('Something broke?')
+            toast.error('Please try another email or try again')
             setEmail('')
         }
-
         setEmail('')
     }
 
