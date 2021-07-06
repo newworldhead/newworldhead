@@ -10,7 +10,7 @@ export default function Footer() {
                 </Link>
 
                 <div className="flex flex-col text-white gap-2 mt-6 items-center">
-                    <p>New World is a trademark of Amazon Game Studios.</p>
+                    <p className="w-full text-center">New World is a trademark of Amazon Game Studios.</p>
                     <p className="w-full text-center">New World Head are not affiliated with or endorsed by Amazon Game Studios.</p>
                     <p className="mt-6 md:mt-0">&copy; 2021 New World Head</p>
                 </div>
