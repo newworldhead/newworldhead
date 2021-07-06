@@ -3,10 +3,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
-import Quill from '@/components/Quill'
+// import Quill from '@/components/Quill'
 import { parseCookies } from '@/helpers/index'
 import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
+
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -476,7 +479,7 @@ export default function CompanyAdd({ company, token }) {
                             </div>
 
                             <div className="mt-10">
-                                <Quill value={values.description} setValue={(data) => {
+                                <ReactQuill value={values.description} setValue={(data) => {
                                     setValues({ ...values, description: data })
                                 }} />
                             </div>
