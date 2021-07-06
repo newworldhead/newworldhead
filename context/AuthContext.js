@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { NEXT_URL } from '../config/index'
+import axios from 'axios'
 
 const AuthContext = createContext()
 
@@ -81,8 +82,8 @@ export const AuthProvider = ({ children }) => {
             },
             body: JSON.stringify(email)
         })
-        const data = await res.json()
 
+        const data = await res.json()
         if (res.ok) {
             setMessage(data.message)
             setMessage(null)
@@ -119,21 +120,22 @@ export const AuthProvider = ({ children }) => {
 
     // check if user is logeed in
     const checkUserLoggedIn = async (user) => {
-        const res = await fetch(`${NEXT_URL}/api/user`, {
-            headers: {
-                "Access-Control-Allow-Credentials": "true",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-                "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-            }
-        })
-        const data = await res.json()
+        // const res = await fetch(`${NEXT_URL}/api/user`)
+        // const data = await res.json()
 
-        if (res.ok) {
-            setUser(data.user)
-        } else {
-            setUser(null)
+        // if (res.ok) {
+        //     setUser(data.user)
+        // } else {
+        //     setUser(null)
+        // }
+
+        try {
+            const data = await axios.get(`${NEXT_URL}/api/user`)
+            console.log(data);
+        } catch (error) {
+            console.log(error);
         }
+
     }
 
     return (
