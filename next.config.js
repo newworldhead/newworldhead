@@ -1,6 +1,7 @@
 // next.config.js
 module.exports = {
     async headers() {
+        console.log('called');
         return [
             {
                 // matching all API routes

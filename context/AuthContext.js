@@ -120,20 +120,13 @@ export const AuthProvider = ({ children }) => {
 
     // check if user is logeed in
     const checkUserLoggedIn = async (user) => {
-        // const res = await fetch(`${NEXT_URL}/api/user`)
-        // const data = await res.json()
+        const res = await fetch(`${NEXT_URL}/api/user`)
+        const data = await res.json()
 
-        // if (res.ok) {
-        //     setUser(data.user)
-        // } else {
-        //     setUser(null)
-        // }
-
-        try {
-            const data = await axios.get(`${NEXT_URL}/api/user`)
-            console.log(data);
-        } catch (error) {
-            console.log(error);
+        if (res.ok) {
+            setUser(data.user)
+        } else {
+            setUser(null)
         }
 
     }
