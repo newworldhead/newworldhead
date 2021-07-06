@@ -24,7 +24,26 @@ export default function PostSlug({ post, allPosts, allCategories }) {
 
                 <div className="mt-6">
                     <Link href="/posts">
-                        <a className="bg-blue-400 tracking-widest text-white capitalize border border-blue-400 px-4 py-2 mt-6 md:mt-0 md:mx-4 rounded shadow-xl hover:shadow md:mx-0">Go Back</a>
+                        <a className="
+                            bg-blue-400 
+                            tracking-widest 
+                            text-white
+                            text-center 
+                            capitalize 
+                            border 
+                            border-blue-400 
+                            px-4 
+                            py-2 
+                            mt-6 
+                            block
+                            w-full
+                            md:w-40
+                            md:mt-0 
+                            md:mx-4 
+                            md:rounded 
+                            shadow-xl 
+                            hover:shadow 
+                        ">Go Back</a>
                     </Link>
                 </div>
 
@@ -35,16 +54,16 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                             <img className="rounded-lg shadow-xl" src={coverimage.url} alt={title} />
                         </div>
                         <div className="p-2 md:p-6">
-                            <h2 className="text-5xl leading-snug font-primary text-primary text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
+                            <h2 className="text-3xl md:text-5xl leading-snug font-primary text-primary text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="flex flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold tracking-wide">
+                            <div className="flex flex-col gap-3 md:flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold tracking-wide">
                                 <h2>{author}</h2>
                                 <h2>{formatDate(date)}</h2>
                                 <h2>{timeToRead} Min Read</h2>
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div id="article" className="mt-6 md:mx-4 text-secondary tracking-wide">{parse(body)}</div>
+                            <div id="article" className="mt-6 p-2 md:p-0 md:mx-4 text-secondary tracking-wide">{parse(body)}</div>
                         </div>
                     </div>
 

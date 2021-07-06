@@ -14,13 +14,13 @@ export default function PostSearchComponent() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="w-96 " >
+            <form onSubmit={handleSubmit} className="w-full" >
                 <input
                     type="text"
                     value={term}
                     placeholder="Search Companies"
                     onChange={(e) => setTerm(e.target.value)}
-                    className="py-2 px-2 outline-none w-full md:w-96 rounded"
+                    className="py-2 px-2 outline-none w-full md:w-full rounded flex-1"
                 />
             </form>
 

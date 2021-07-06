@@ -47,7 +47,7 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                     </div>
                 </div>
 
-                <div className="flex flex-col text-left mx-4 md:mx-0">
+                <div className="flex flex-col text-left mx-0">
                     <div className="my-2 overflox-x-auto">
                         <div className="py-2 align-middle inline-block w-full">
                             <div className="shadow overflow-hidden border-b border-gray-400">
@@ -56,8 +56,8 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                                     <thead className="bg-primary w-full">
                                         <tr className="flex">
                                             <th scope="col" className="flex-1 px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Name</th>
-                                            <th scope="col" className="flex-1 px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Recruiting</th>
-                                            <th scope="col" className="flex-1 px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Playstyle</th>
+                                            <th scope="col" className="flex-3 md:flex-1 px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Recruiting</th>
+                                            <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Playstyle</th>
                                             <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Region</th>
                                             <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Language</th>
                                         </tr>

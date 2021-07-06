@@ -5,7 +5,7 @@ import AuthContext from '@/context/AuthContext'
 export default function MobileDrop({ toggle }) {
     const { user, logout } = useContext(AuthContext)
     return (
-        <div className={`${!toggle && 'hidden'} bg-secondary w-full py-10 md:hidden`}>
+        <div className={`${!toggle && 'hidden'} bg-secondary w-full py-6 md:hidden`}>
             <div className="items-center uppercase tracking-widest text-sm text-white flex flex-col">
                 <Link href="/posts">
                     <a className="py-3 w-full text-center hover:bg-primary">News</a>
@@ -26,13 +26,12 @@ export default function MobileDrop({ toggle }) {
                                 mx-4
                                 py-2
                                 px-4
-                                w-1/2
+                                w-full
                                 text-white
                                 text-center
                                 uppercase
                                 tracking-wider
                                 shadow-xl
-                                rounded
                                 border
                                 border-blue-400 
                                 focus:outline-none
@@ -49,13 +48,12 @@ export default function MobileDrop({ toggle }) {
                                 mx-4
                                 py-2
                                 px-4
-                                w-1/2
+                                w-full
                                 text-white
                                 text-center
                                 uppercase
                                 tracking-wider
                                 shadow-xl
-                                rounded
                                 border
                                 border-blue-400 
                                 focus:outline-none

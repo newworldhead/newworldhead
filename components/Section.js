@@ -2,7 +2,7 @@ export default function Section({ image, height, color, positon, attachment, pla
     return (
         <section className={`bg-${image} h-${height} bg-${positon} bg-cover bg-no-repeat bg-${attachment}`}>
             <div className={`bg-${color} bg-opacity-0 h-full w-full flex items-${place}`}>
-                <div className={`container mx-auto px-4  md:px-${px} relative`}>
+                <div className={`container mx-auto md:px-${px} relative`}>
                     {children}
                 </div>
             </div>

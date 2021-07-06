@@ -3,15 +3,14 @@ import Link from 'next/link'
 export default function Footer() {
     return (
         <footer className="bg-secondary text-gray-100 shadow w-full p-4">
-            <div className="container mx-auto flex flex-col items-left justify-between items-center sm:flex-row">
+            <div className="container mx-auto flex flex-col items-left justify-between items-center ">
 
                 <Link href="/">
                     <a className="mt-6 uppercase tracking-widest font-primary text-2xl">New World <span className="text-blue-400">Head</span></a>
                 </Link>
 
                 <div className="flex flex-col text-white gap-2 mt-6 items-center">
-                    <p className="w-full text-center">New World is a trademark of Amazon Game Studios.</p>
-                    <p className="w-full text-center">New World Head are not affiliated with or endorsed by Amazon Game Studios.</p>
+                    <p className="w-full text-center">New World is a trademark of Amazon Game Studios.  New World Head are not affiliated with or endorsed by Amazon Game Studios.</p>
                     <p className="mt-6 md:mt-0">&copy; 2021 New World Head</p>
                 </div>
 

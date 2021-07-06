@@ -20,7 +20,7 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
     >
       <ReactTooltip />
       {/* display most recent posts */}
-      <div className="container mx-auto md:mt-12">
+      <div className="container mx-auto mt-6 md:mt-12">
         <p className="uppercase text-sm tracking-widest my-1 text-white mx-4 md:mx-0">recent</p>
         <h2 className="text-white uppercase text-4xl tracking-widest font-primary ml-4 md:ml-0">articles</h2>
       </div>
@@ -31,7 +31,7 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
           ))}
         </div>
       </SectionGrid>
-      <div className="container mx-auto">
+      <div className="container mx-auto mb-20">
         <Link href="/posts">
           <a
             className="
@@ -39,13 +39,15 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
               border
               border-blue-400
               text-white
-              mx-4
+              text-center
               px-4
               py-2
-              inline-block
               rounded
               shadow-xl
               mt-4
+              block
+              w-full
+              md:w-28
               hover:shadow
               md:mx-0
             "
@@ -84,9 +86,11 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
               border
               border-blue-400
               text-white
-              mx-4
+              text-center
               px-4
               py-2
+              w-full
+              md:w-40
               inline-block
               rounded
               shadow-xl

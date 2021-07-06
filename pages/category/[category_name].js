@@ -15,14 +15,14 @@ export default function NewsCategoryName({ category, allCategories, allPosts }) 
 
             <Section image={"category-section"} height={'medium'} positon={"bottom"}>
                 <div className="flex justify-center items-center">
-                    <h1 className="capitalize text-white text-5xl font-primary text-center">
+                    <h1 className="capitalize text-white text-4xl md:text-5xl font-primary text-center">
                         You are searching: {category.name}
                     </h1>
                 </div>
             </Section>
 
             <SectionGrid>
-                <div className="md:w-3/4">
+                <div className="md:w-3/4 mt-4 mb-10 md:my-4 ">
                     <div className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
                         {category.posts.map((post) => (
                             <PostGrid key={post.id} post={post} />

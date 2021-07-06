@@ -35,7 +35,15 @@ export default function EmailSubscriptions() {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex flex-col mt-8 space-y-3 md:space-y-0 md:flex-row">
+            className="
+                flex 
+                flex-col  
+                mt-2 
+                md:mt-8 
+                space-y-3 
+                md:space-y-0 
+                md:flex-row
+            ">
             <ToastContainer />
             <label htmlFor="email" className="sr-only">Email Address</label>
             <input

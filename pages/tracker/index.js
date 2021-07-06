@@ -6,7 +6,7 @@ export default function TrackerIndex({ updates }) {
     return (
         <MainLayout>
             <section className="container mx-auto">
-                <div className="mx-4 md:flex md:flex-col md:items-center">
+                <div className="md:flex md:flex-col md:items-center">
                     <h1 className="mt-20 text-white text-5xl font-primary tracking-wide capitalize">new world tracked news</h1>
                     {updates.map((update) => (
                         <RecentTrackedItem key={update.id} update={update} />

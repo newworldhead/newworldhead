@@ -17,7 +17,7 @@ export default function CompanyListItem({ company }) {
                             <div className="text-lg font-medium text-white cursor-pointer hover:text-blue-400">
                                 <Link href={`/companies/${slug}`}>
                                     <div>
-                                        {name.slice(0, 20) || name}
+                                        {name.slice(0, 10) || name}
                                     </div>
                                 </Link>
                             </div>
@@ -29,12 +29,12 @@ export default function CompanyListItem({ company }) {
                         </div>
                     </div>
                 </td>
-                <td className="flex-1 px-6 py-4 whitespace-nowrap">
+                <td className="flex-3 md:flex-1 px-6 py-4 whitespace-nowrap">
                     <span className={`capitalize px-4 py-1 inline-flex text-xs leading-5 font-semibold rounded ${recruiting === 'yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} `}>
                         {recruiting}
                     </span>
                 </td>
-                <td className="flex-1 px-6 py-4 whitespace-nowrap text-sm text-white uppercase">
+                <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white uppercase">
                     {playstyle}
                 </td>
                 <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white">

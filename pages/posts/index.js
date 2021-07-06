@@ -15,11 +15,11 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
             description={"The best place for news and everything New World"}
         >
 
-            <div className="container mx-4 md:mx-auto ">
-                <h1 className="font-primary text-white text-4xl uppercase mt-10">All Posts</h1>
+            <div className="container mx-auto">
+                <h1 className="font-primary text-white text-4xl uppercase mt-10 mx-4 md:mx-0 ">All Posts</h1>
             </div>
 
-            <div className="container mx-auto px-4 mt-4 w-full md:px-0">
+            <div className="container mx-auto mt-4 w-full md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-8 justify-center items-center ">
 
                     <Link href="/">
@@ -37,7 +37,8 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
                             shadow-xl
                             hover:shadow
                             capitalize 
-                            w-28
+                            w-full
+                            md:w-28
                             focus:outline-none
                             ">
                             Go Back

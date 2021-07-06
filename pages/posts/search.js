@@ -15,7 +15,7 @@ export default function PostsSearch({ term, searches }) {
 
             <Section image={"category-search"} height={'medium'} positon={"center"}>
                 <div className="flex justify-center items-center">
-                    <h1 className="uppercase text-white text-5xl font-primary text tracking-wider">
+                    <h1 className="uppercase text-white text-3xl md:text-5xl font-primary text tracking-wider">
                         Searched for {term}
                     </h1>
                 </div>
@@ -23,17 +23,33 @@ export default function PostsSearch({ term, searches }) {
 
             <div className="container mx-auto my-8">
 
-                <div className="flex justify-between">
+                <div className="flex flex-col md:flex-row justify-between">
                     <Link href="/posts">
-                        <a className="bg-blue-400 tracking-widest text-white text-sm uppercase border-2 border-blue-400 px-4 py-2 mx-4 font-secondary tracking-wide hover:text-blue-400 hover:bg-transparent md:mx-0">Go Back</a>
+                        <a className="
+                            w-full
+                            md:w-40
+                            bg-blue-400 
+                            tracking-widest 
+                            text-white 
+                            text-center
+                            capitalize 
+                            border-2 
+                            border-blue-400 
+                            px-4 
+                            py-2 
+                            tracking-wide
+                            rounded
+                            shadow-xl 
+                            hover:shadow
+                            md:mx-0">Go Back</a>
                     </Link>
-                    <p className="self-end text-white capitalize mx-4">{searches.length} result</p>
+                    <p className="self-end text-white capitalize mt-4 md:mt-0 mx-4">{searches.length} result</p>
                 </div>
             </div>
 
             <SectionGrid>
-                <div className="md:w-full">
-                    <div className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
+                <div className="md:w-full mb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {searches.map((post) => (
                             <PostGrid key={post.id} post={post} />
                         ))}

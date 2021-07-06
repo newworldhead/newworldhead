@@ -15,7 +15,7 @@ export default function RecentTrackedItem({ newworldUpdates }) {
                 <p className="text-center md:w-1/2">{excerpt}</p>
                 <p className="mt-4">~Amazon New World</p>
             </div>
-            <p className="absolute top-0 right-60 p-4">{pleaseDateGiveMeStrength.toDateString()}</p>
+            <p className="absolute top-4 right-30 p-4 w-40">{pleaseDateGiveMeStrength.toDateString()}</p>
 
             <div className="flex flex-row gap-4 mt-8 items-center justify-center">
                 <Link href={link}>

@@ -25,11 +25,13 @@ export default function CompanySlug({ company }) {
                             mt-4
                             px-4 
                             py-2
+                            w-full
+                            md:w-40
                             text-white
                             outline-none 
                             tracking-wider
-                            rounded
-                            shadow-xl
+                            md:rounded
+                            md:shadow-xl
                             hover:shadow
                             capitalize 
                             focus:outline-none
@@ -40,11 +42,11 @@ export default function CompanySlug({ company }) {
 
                 <div className="bg-white w-full h-auto relative rounded-xl my-4">
 
-                    <div className={` bg-center bg-cover bg-no-repeat rounded-lg shadow-lg md:h-96`}>
+                    <div className="rounded-lg shadow-lg hidden md:h-96 md:block">
                         <img className="h-full w-full rounded-lg" src={coverimage ? coverimage.url : 'https://via.placeholder.com/800x400'} alt="" />
                     </div>
 
-                    <div className="rounded-lg shadow-xl bg-white inline-block absolute  top-44 left-4 md:top-80 md:left-20 cursor-pointer hover:shadow">
+                    <div className="rounded-lg shadow-xl bg-white inline-block absolute top-6 left-6 md:top-80 md:left-20 cursor-pointer hover:shadow">
                         <img className="w-32 border-2" src={logo ? logo.url : 'https://via.placeholder.com/150x150'} alt={name} />
                     </div>
 
@@ -68,7 +70,7 @@ export default function CompanySlug({ company }) {
 
                     <div className="mx-4 md:w-5/6 md:mx-auto">
                         <div className="flex flex-row items-center justify-between">
-                            <h1 className="text-4xl font-primary tracking-wide mt-28 capitalize">{name}</h1>
+                            <h1 className="text-4xl font-primary tracking-wide mt-52 md:mt-28 capitalize">{name}</h1>
 
                             <p className={`px-4 py-2 text-base font-bold capitalize self-end tracking-wide ${recruiting === 'yes' ? "bg-green-100 text-green-500" : "bg-red-100 text-red-600"}`}>
                                 {recruiting === 'yes' ? "" : "not"} recruiting
