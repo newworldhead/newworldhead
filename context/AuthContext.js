@@ -81,10 +81,7 @@ export const AuthProvider = ({ children }) => {
             },
             body: JSON.stringify(email)
         })
-
         const data = await res.json()
-
-        console.log(data);
 
         if (res.ok) {
             setMessage(data.message)
@@ -122,7 +119,14 @@ export const AuthProvider = ({ children }) => {
 
     // check if user is logeed in
     const checkUserLoggedIn = async (user) => {
-        const res = await fetch(`${NEXT_URL}/api/user`)
+        const res = await fetch(`${NEXT_URL}/api/user`, {
+            headers: [
+                { key: "Access-Control-Allow-Credentials", value: "true" },
+                { key: "Access-Control-Allow-Origin", value: "*" },
+                { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+            ]
+        })
         const data = await res.json()
 
         if (res.ok) {
