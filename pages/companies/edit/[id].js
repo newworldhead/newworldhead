@@ -9,9 +9,10 @@ import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
 
 import dynamic from 'next/dynamic';
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
+import 'react-quill/dist/quill.snow.css'
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 export default function CompanyAdd({ company, token }) {
     const router = useRouter()
