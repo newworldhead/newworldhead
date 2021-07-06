@@ -84,6 +84,8 @@ export const AuthProvider = ({ children }) => {
 
         const data = await res.json()
 
+        console.log(data);
+
         if (res.ok) {
             setMessage(data.message)
             setMessage(null)
@@ -117,7 +119,7 @@ export const AuthProvider = ({ children }) => {
             setError(null)
         }
     }
-    
+
     // check if user is logeed in
     const checkUserLoggedIn = async (user) => {
         const res = await fetch(`${NEXT_URL}/api/user`)

@@ -11,8 +11,7 @@ export default function ForgotPasswordAuth() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(email);
-
+        
         if (email === '') {
             toast.error('Please Enter a Valid Email')
         }

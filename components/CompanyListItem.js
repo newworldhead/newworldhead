@@ -16,7 +16,9 @@ export default function CompanyListItem({ company }) {
                         <div className="ml-4">
                             <div className="text-lg font-medium text-white cursor-pointer hover:text-blue-400">
                                 <Link href={`/companies/${slug}`}>
-                                    {name}
+                                    <div>
+                                        {name.slice(0, 20) || name}
+                                    </div>
                                 </Link>
                             </div>
                             <div>

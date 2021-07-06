@@ -540,8 +540,6 @@ export async function getServerSideProps({ params: { id }, req }) {
         }
     })
     const fetchedThisUser = await fetchThisUser.json()
-    console.log(fetchedThisUser);
-
 
     // check if Unauthorized 
     if (fetchedThisUser.statusCode === 401) {
@@ -552,8 +550,6 @@ export async function getServerSideProps({ params: { id }, req }) {
             },
         }
     }
-
-    console.log(fetchedThisUser.statusCode === 401);
 
     // fetch the company by id
     const fetchCompanyById = await fetch(`${API_URL}/companies/${id}`)

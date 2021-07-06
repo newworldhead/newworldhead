@@ -29,7 +29,7 @@ export default function CompanyInformation({ company, companyCount }) {
                                     bg-blue-400
                                     inline-block
                                 "
-                            >Join Company</a>
+                            >Browse Companies</a>
                         </Link>
                     </div>
                 </div>

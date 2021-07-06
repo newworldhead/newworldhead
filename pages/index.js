@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Link from 'next/link'
 import Layout from '@/components/MainLayout'
 import SectionGrid from '@/components/SectionGrid'
@@ -7,12 +8,17 @@ import RecentCompanies from '@/components/Home/RecentCompanies'
 import { API_URL } from '@/config/index'
 
 export default function Home({ posts, companies, newworldUpdates, tag }) {
+
+  const ReactTooltip = dynamic(() => import("react-tooltip"), {
+    ssr: false,
+  });
+
   return (
     <Layout
       title={"Welcome to New World Head | newworldhead.com"}
       description={"The best place for news and everything New World"}
     >
-
+      <ReactTooltip />
       {/* display most recent posts */}
       <div className="container mx-auto md:mt-12">
         <p className="uppercase text-sm tracking-widest my-1 text-white mx-4 md:mx-0">recent</p>

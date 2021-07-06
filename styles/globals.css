@@ -20,3 +20,16 @@ body {
     padding-bottom: 2px;
     letter-spacing: 2px;
 }
+
+#companyBio h1 {
+    font-family: 'IM Fell DW Pica', serif;
+    font-size: 2rem;
+    line-height: 1.75rem;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+}
+
+#companyBio a {
+    color: #60A5FA;
+}

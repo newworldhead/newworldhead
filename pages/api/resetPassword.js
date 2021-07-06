@@ -3,9 +3,6 @@ import { API_URL } from "@/config/index"
 export default async (req, res) => {
     if (req.method === 'POST') {
         const { code, password, confirmPassword } = req.body
-
-        console.log({ code, password, confirmPassword })
-
         const strapiRes = await fetch(`${API_URL}/auth/reset-password`, {
             method: 'POST',
             headers: {

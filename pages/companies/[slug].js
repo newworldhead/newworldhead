@@ -67,32 +67,8 @@ export default function CompanySlug({ company }) {
                     </Link>
 
                     <div className="mx-4 md:w-5/6 md:mx-auto">
-                        <div className="flex flex-row items-center justify-end">
-                            <Link href="/">
-                                <a className="
-                                flex 
-                                flex-row 
-                                justify-center
-                                items-center 
-                                text-white 
-                                tracking-wide
-                                border
-                                border-blue-400 
-                                py-2 
-                                px-4 
-                                mt-6
-                                mr-2
-                                bg-blue-400 
-                                rounded 
-                                shadow-xl 
-                                hover:shadow
-                                ">
-                                    Message
-                                </a>
-                            </Link>
-                        </div>
                         <div className="flex flex-row items-center justify-between">
-                            <h1 className="text-4xl font-primary tracking-wide mt-12">{name}</h1>
+                            <h1 className="text-4xl font-primary tracking-wide mt-28 capitalize">{name}</h1>
 
                             <p className={`px-4 py-2 text-base font-bold capitalize self-end tracking-wide ${recruiting === 'yes' ? "bg-green-100 text-green-500" : "bg-red-100 text-red-600"}`}>
                                 {recruiting === 'yes' ? "" : "not"} recruiting
@@ -139,7 +115,7 @@ export default function CompanySlug({ company }) {
                             </div>
 
                         </div>
-                        <div className="my-10 pb-8">{parse(description)}</div>
+                        <div id="companyBio" className="my-10 pb-8">{parse(description)}</div>
 
                     </div>
                 </div>

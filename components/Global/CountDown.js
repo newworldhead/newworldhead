@@ -9,7 +9,7 @@ export default function CountDown() {
 
     let interval = useRef()
 
-    const startTimer = () => {
+    useEffect(() => {
         const countDownDate = new Date('July 20, 2021 00:00:00').getTime()
 
         interval = setInterval(() => {
@@ -22,7 +22,7 @@ export default function CountDown() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000)
 
             if (distance < 0) {
-                clearInterval(interval.current)
+                clearInterval(interval)
             } else {
                 setTimerDays(days)
                 setTimerHours(hours)
@@ -31,12 +31,9 @@ export default function CountDown() {
             }
 
         }, 1000)
-    }
 
-    useEffect(() => {
-        startTimer()
         return () => {
-            clearInterval(interval.current)
+            clearInterval(interval)
         }
     }, [])
 
