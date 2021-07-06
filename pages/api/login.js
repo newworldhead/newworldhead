@@ -1,7 +1,16 @@
 import cookie from 'cookie'
+import NextCors from 'nextjs-cors'
 import { API_URL } from "@/config/index"
 
 export default async (req, res) => {
+
+    await NextCors(req, res, {
+        // Options
+        methods: ['POST'],
+        origin: '*',
+        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    });
+
     if (req.method === 'POST') {
         const { identifier, password } = req.body
 
