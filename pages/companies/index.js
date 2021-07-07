@@ -5,6 +5,7 @@ import CompanyListItem from '@/components/CompanyListItem'
 import CompaniesSearch from '@/components/CompaniesSearch'
 import CompanyFilters from '@/components/CompanyFilters'
 import Pagination from '@/components/Pagination'
+import Breadcrumbs from "@/components/Global/BreadCrumbs";
 import { API_URL, PER_PAGE } from '@/config/index'
 import { parseCookies } from '@/helpers/index'
 import { FaUndo } from 'react-icons/fa'
@@ -28,8 +29,13 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
         >
             <ReactTooltip />
             <div className="container mx-auto mb-4 relative">
+
+                <div className="my-10">
+                    <Breadcrumbs term={"companies"} />
+                </div>
+
                 <div>
-                    <h1 className="font-primary text-center text-white text-4xl uppercase mt-16 mb-10 md:text-left">All Companies</h1>
+                    <h1 className="font-primary text-center text-white text-4xl uppercase mb-10 md:text-left">All Companies</h1>
                 </div>
 
                 <div className="flex flex-col items-center justify-between md:flex-row md:items-end">

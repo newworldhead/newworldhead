@@ -3,6 +3,7 @@ import MainLayout from '@/components/MainLayout'
 import SectionGrid from '@/components/SectionGrid'
 import Section from '@/components/Section'
 import PostGrid from '@/components/PostGrid'
+import Breadcrumbs from '@/components/Global/BreadCrumbs'
 import { API_URL } from '@/config/index'
 import qs from 'qs'
 
@@ -24,25 +25,9 @@ export default function PostsSearch({ term, searches }) {
             <div className="container mx-auto my-8">
 
                 <div className="flex flex-col md:flex-row justify-between">
-                    <Link href="/posts">
-                        <a className="
-                            md:w-40
-                            bg-blue-400 
-                            tracking-widest 
-                            text-white 
-                            text-center
-                            capitalize 
-                            border-2 
-                            border-blue-400 
-                            px-4 
-                            py-2 
-                            mx-4
-                            tracking-wide
-                            rounded
-                            shadow-xl 
-                            hover:shadow
-                            md:mx-0">Go Back</a>
-                    </Link>
+                    <div className="mt-6 mx-4">
+                        <Breadcrumbs term={term} />
+                    </div>
                     <p className="self-end text-white capitalize mt-4 md:mt-0 mx-4">{searches.length} result</p>
                 </div>
             </div>

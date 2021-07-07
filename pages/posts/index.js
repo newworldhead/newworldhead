@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import SectionPrimary from '@/components/SectionPrimary'
 import PostHighlights from '@/components/PostHighLights'
@@ -6,6 +5,7 @@ import SectionGrid from '@/components/SectionGrid'
 import PostGrid from '@/components/PostGrid'
 import Search from '@/components/PostSearch'
 import Pagination from '@/components/Pagination'
+import BreadCrumbs from '@/components/Global/BreadCrumbs'
 import { API_URL, PER_PAGE } from '@/config/index'
 
 export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstThree, fetchedPostsCount, page }) {
@@ -21,30 +21,7 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
 
             <div className="container mx-auto mt-4 w-full md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-8 justify-center items-center ">
-
-                    <Link href="/">
-                        <button
-                            className="
-                            bg-blue-400 
-                            border 
-                            border-blue-400 
-                            px-4 
-                            py-2
-                            text-white
-                            outline-none 
-                            tracking-wider
-                            rounded
-                            shadow-xl
-                            hover:shadow
-                            capitalize 
-                            mx-4
-                            md:mx-0
-                            md:w-28
-                            focus:outline-none
-                            ">
-                            Go Back
-                        </button>
-                    </Link>
+                    <BreadCrumbs />
                     <Search />
                 </div>
             </div>

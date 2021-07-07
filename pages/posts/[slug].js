@@ -4,6 +4,7 @@ import Section from '@/components/Section'
 import CategoryLabel from '@/components/CategoryLabel'
 import CategoryWidget from '@/components/CategoryWidget'
 import RecentPostWidget from '@/components/RecentPostWidget'
+import Breadcrumbs from '@/components/Global/BreadCrumbs'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
 import { parse, timeByWordCount } from '@/utils/index'
@@ -22,29 +23,8 @@ export default function PostSlug({ post, allPosts, allCategories }) {
 
             <Section height={"auto"} place={"top"} >
 
-                <div className="mt-6 mx-4 md:mx-0">
-                    <Link href="/posts">
-                        <a className="
-                            bg-blue-400 
-                            tracking-widest 
-                            text-white
-                            text-center 
-                            capitalize 
-                            border 
-                            border-blue-400 
-                            px-4 
-                            py-2 
-                            mt-6 
-                            block
-                            w-full
-                            md:w-40
-                            md:mt-0 
-                            md:mx-4 
-                            rounded 
-                            shadow-xl 
-                            hover:shadow 
-                        ">Go Back</a>
-                    </Link>
+                <div className="mt-6 mx-4">
+                    <Breadcrumbs />
                 </div>
 
                 <div className="flex flex-col mb-4 md:mx-4 md:flex-row md:mx-0">
