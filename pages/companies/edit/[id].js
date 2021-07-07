@@ -3,13 +3,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
-// import Quill from '@/components/Quill'
+import Quill from '@/components/Quill'
 import { parseCookies } from '@/helpers/index'
 import { API_URL } from '@/config/index'
 import { FaSpinner } from 'react-icons/fa'
-
-import dynamic from 'next/dynamic';
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -107,6 +104,9 @@ export default function CompanyAdd({ company, token }) {
 
         const res = await fetch(`${API_URL}/upload`, {
             method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
             body: formData
         })
 
@@ -160,15 +160,22 @@ export default function CompanyAdd({ company, token }) {
 
                 <ToastContainer />
 
-                <Link href={`/companies`}>
-                    <button
-                        className="
+                <div className="flex flex-row">
+                    <Link href={`/companies`}>
+                        <button
+                            className="
                             bg-blue-400 
                             border 
                             border-blue-400 
                             mt-4
                             px-4 
                             py-2
+                            mx-4
+                            md:mx-0
+                            flex-1
+                            md:flex-none
+                            block
+                            md:w-40
                             text-white
                             outline-none 
                             tracking-wider
@@ -178,9 +185,11 @@ export default function CompanyAdd({ company, token }) {
                             capitalize 
                             focus:outline-none
                             ">
-                        Go Back
-                    </button>
-                </Link>
+                            Go Back
+                        </button>
+                    </Link>
+                </div>
+
 
                 <div className="bg-white w-full h-auto relative rounded-xl my-4">
 
@@ -277,11 +286,13 @@ export default function CompanyAdd({ company, token }) {
                         </button>
                     </form>
 
-                    <div className={`rounded-lg shadow-lg h-full w-full`}>
+                    <div className={`rounded-lg shadow-lg h-full w-full hidden md:block`}>
                         <img className="w-full h-60 md:h-96 rounded-lg" src={`${tempCoverImage ? tempCoverImage : company.coverimage ? company.coverimage.url : 'https://via.placeholder.com/800x400'}`} alt="placeholder.com/800x400" />
                     </div>
 
-                    <div className="rounded-lg shadow-xl bg-white inline-block absolute top-44 left-4 md:top-80 md:left-20 cursor-pointer hover:shadow">
+                    <div className="py-10 md:hidden"></div>
+
+                    <div className="rounded-lg shadow-xl bg-white inline-block absolute top-4 left-4 md:top-80 md:left-20 cursor-pointer hover:shadow">
 
                         {/* So much work */}
                         <form onSubmit={handleSubmitLogo}>
@@ -480,7 +491,7 @@ export default function CompanyAdd({ company, token }) {
                             </div>
 
                             <div className="mt-10">
-                                <ReactQuill value={values.description} setValue={(data) => {
+                                <Quill value={values.description} setValue={(data) => {
                                     setValues({ ...values, description: data })
                                 }} />
                             </div>

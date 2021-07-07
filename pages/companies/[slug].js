@@ -88,7 +88,7 @@ export default function CompanySlug({ company }) {
 
                     <div className="mx-4 md:w-5/6 md:mx-auto">
 
-                        <div className="grid mt-8 gap-4 md:gap-2 grid-cols-2 md:grid-cols-5">
+                        <div className="grid mt-8 gap-4 md:gap-2 grid-cols-2 md:grid-cols-4">
 
                             <div>
                                 <div className="flex flex-col">
@@ -115,13 +115,6 @@ export default function CompanySlug({ company }) {
                                     <p className="mt-2 uppercase">{playstyle}</p>
                                 </div>
                             </div>
-                            <div>
-                                <div className="flex flex-col">
-                                    <h3 className="capitalize text-2xl tracking-wide">faction size</h3>
-                                    <p className="mt-2 capitalize">{size}</p>
-                                </div>
-                            </div>
-
                         </div>
                         <div id="companyBio" className="my-10 pb-8">{parse(description)}</div>
 
