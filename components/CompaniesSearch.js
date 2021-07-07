@@ -14,14 +14,44 @@ export default function PostSearchComponent() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="w-full" >
+            <form onSubmit={handleSubmit} className="flex flex-col mx-4 md:mx-0">
                 <input
                     type="text"
                     value={term}
                     placeholder="Search Companies"
                     onChange={(e) => setTerm(e.target.value)}
-                    className="py-2 px-2 outline-none w-full md:w-full rounded flex-1"
-                />
+                    className="
+                        w-full
+                        md:w-80
+                        py-2 
+                        px-2 
+                        outline-none 
+                        rounded 
+                        flex-1
+                    "/>
+                <button
+                    className="
+                            block
+                            md:hidden
+                            bg-blue-400 
+                            border 
+                            border-blue-400 
+                            px-4 
+                            py-2
+                            mt-2
+                            text-white
+                            outline-none 
+                            tracking-wider
+                            rounded
+                            shadow-xl
+                            hover:shadow
+                            capitalize 
+                            md:mx-0
+                            md:w-28
+                            focus:outline-none
+                            ">
+                    Search
+                </button>
             </form>
 
         </div>

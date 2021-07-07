@@ -39,6 +39,8 @@ export default function EmailSubscriptions() {
                 flex 
                 flex-col  
                 mt-2 
+                mx-4
+                md:mx-0
                 md:mt-8 
                 space-y-3 
                 md:space-y-0 

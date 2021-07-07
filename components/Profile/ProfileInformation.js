@@ -18,9 +18,11 @@ export default function ProfileInformation({ user, setRequested, submitHandler, 
                             inline-block
                             shadow-xl
                             tracking-wide
+                            rounded
                             hover:shadow
+                            focus:outline-none
                         ">
-                        Request Profile Clouser</button>
+                        Request Profile Closure</button>
                 </form>
             ) : (
                 <form onSubmit={editProfileRemoval}>
@@ -31,10 +33,14 @@ export default function ProfileInformation({ user, setRequested, submitHandler, 
                             bg-red-400
                             px-2
                             py-2
+                            w-full
+                            md:w-60
                             inline-block
                             shadow-xl
                             tracking-wide
+                            rounded
                             hover:shadow
+                            focus:outline-none
                     ">Request Profile Clouser</button>
                 </form>
             )}

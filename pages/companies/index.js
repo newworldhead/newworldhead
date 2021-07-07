@@ -32,16 +32,40 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                     <h1 className="font-primary text-center text-white text-4xl uppercase mt-16 mb-10 md:text-left">All Companies</h1>
                 </div>
 
-                <div className="flex flex-col items-center justify-between md:flex-row">
+                <div className="flex flex-col items-center justify-between md:flex-row md:items-end">
                     <CompanyFilters />
-                    <div className="flex flex-row items-end mt-4 ">
+                    <div className="flex flex-col md:flex-row w-full md:justify-end ">
                         <CompaniesSearch />
-                        <div className="relative">
+                        <div className="flex flex-row">
                             <button
                                 data-tip="Reset"
                                 onClick={handleClick}
-                                className="p-3 ml-2 bg-blue-400 text-white rounded outline-none focus:outline-none">
+                                className=" hidden md:block p-3 ml-2 bg-blue-400 text-white rounded outline-none focus:outline-none">
                                 <FaUndo />
+                            </button>
+                            <button
+                                onClick={handleClick}
+                                className="
+                                    block
+                                    md:hidden
+                                    bg-blue-400 
+                                    border 
+                                    border-blue-400 
+                                    px-4 
+                                    py-2
+                                    mt-2
+                                    mx-4
+                                    w-full
+                                    text-white
+                                    outline-none 
+                                    tracking-wider
+                                    rounded
+                                    shadow-xl
+                                    hover:shadow
+                                    capitalize 
+                                    focus:outline-none
+                                ">
+                                Reset
                             </button>
                         </div>
                     </div>

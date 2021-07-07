@@ -184,7 +184,7 @@ export default function CompanyAdd({ company, token }) {
 
                 <div className="bg-white w-full h-auto relative rounded-xl my-4">
 
-                    <form onSubmit={handleSubmitCoverImage}>
+                    <form onSubmit={handleSubmitCoverImage} className="hidden md:block">
                         <label
                             htmlFor="coverImage"
                             className={`

@@ -16,29 +16,35 @@ export default function CompanySlug({ company }) {
         >
             <Section height={"full"} px={"60"}>
 
-                <Link href="/companies">
-                    <button
-                        className="
+                <div className="flex flex-row w-full">
+                    <Link href="/companies">
+                        <button
+                            className="
+                            flex-1
+                            mx-4
+                            md:mx-0
                             bg-blue-400 
                             border 
                             border-blue-400 
                             mt-4
                             px-4 
                             py-2
-                            w-full
+                            block
                             md:w-40
+                            md:flex-none
                             text-white
                             outline-none 
                             tracking-wider
-                            md:rounded
+                            rounded
                             md:shadow-xl
                             hover:shadow
                             capitalize 
                             focus:outline-none
                             ">
-                        Go Back
-                    </button>
-                </Link>
+                            Go Back
+                        </button>
+                    </Link>
+                </div>
 
                 <div className="bg-white w-full h-auto relative rounded-xl my-4">
 

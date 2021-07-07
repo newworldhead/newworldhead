@@ -22,7 +22,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
 
             <Section height={"auto"} place={"top"} >
 
-                <div className="mt-6">
+                <div className="mt-6 mx-4 md:mx-0">
                     <Link href="/posts">
                         <a className="
                             bg-blue-400 
@@ -40,7 +40,7 @@ export default function PostSlug({ post, allPosts, allCategories }) {
                             md:w-40
                             md:mt-0 
                             md:mx-4 
-                            md:rounded 
+                            rounded 
                             shadow-xl 
                             hover:shadow 
                         ">Go Back</a>

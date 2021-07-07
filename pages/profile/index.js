@@ -71,10 +71,15 @@ export default function Dashboard({ token, user, company, companyCount, requeste
                                         bg-blue-400
                                         px-2
                                         py-2
+                                        mt-2
+                                        md:mt-0
                                         inline-block
                                         shadow-xl
+                                        rounded
+                                        w-full
                                         tracking-wide
                                         hover:shadow
+                                        focus:outline-none
                                     "
                                 >Stop Acount Closure</button>
                             </form>
@@ -102,6 +107,7 @@ export default function Dashboard({ token, user, company, companyCount, requeste
                             </div>
                             <div className="border-l-4 border-blue-400 bg-secondary p-10 text-white relative">
                                 <h2 className="text-white text-3xl font-primary ">Company Information</h2>
+                                <div className="my-4 border-b border-gray-400"></div>
                                 <CompanyInformation user={user} company={company} companyCount={companyCount} />
                             </div>
                         </div>

@@ -5,7 +5,7 @@ export default function CompanyInformation({ company, companyCount }) {
             {company.length === 0 ? (
 
                 <div className="mt-4 flex flex-col">
-                    <p className="w-5/6">No company information can be found for you.  Would you like to create a company or join one?</p>
+                    <p className="w-5/6">No company information can be found for you.  Would you like to create a company or browse?</p>
                     <p className="mt-10">There is currently <span className="mx-2 px-3 py-1 border border-blue-400">{`${companyCount}`}</span> companies to choose from.</p>
 
                     <div className="flex flex-row gap-4 my-2">
@@ -45,7 +45,9 @@ export default function CompanyInformation({ company, companyCount }) {
                                 inline-block
                                 rounded
                                 shadow-xl
+                                text-center
                                 hover:shadow
+                                focus:outline-none
                             "
                         >Edit Company</a>
                     </Link>
@@ -59,7 +61,9 @@ export default function CompanyInformation({ company, companyCount }) {
                                 inline-block
                                 rounded
                                 shadow-xl
+                                text-center
                                 hover:shadow
+                                focus:outline-none
                             "
                         >Delete Company</a>
                     </Link>

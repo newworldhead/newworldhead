@@ -23,7 +23,7 @@ export default function NewsCategoryName({ category, allCategories, allPosts }) 
 
             <SectionGrid>
                 <div className="md:w-3/4 mt-4 mb-10 md:my-4 ">
-                    <div className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
+                    <div className="grid grid-cols-1 gap-y-10 md:gap-y-0 gap-2 md:grid-cols-3 md:gap-4">
                         {category.posts.map((post) => (
                             <PostGrid key={post.id} post={post} />
                         ))}

@@ -25,7 +25,7 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
         <h2 className="text-white uppercase text-4xl tracking-widest font-primary ml-4 md:ml-0">articles</h2>
       </div>
       <SectionGrid>
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4">
+        <div className="grid grid-cols-1 gap-y-10 md:gap-y-0 md:gap-2 md:grid-cols-4 md:gap-4">
           {posts.map((post) => (
             <PostGrid key={post.id} post={post} />
           ))}
@@ -44,9 +44,9 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
               py-2
               rounded
               shadow-xl
-              mt-4
+              mt-4             
               block
-              w-full
+              mx-4
               md:w-28
               hover:shadow
               md:mx-0
@@ -95,6 +95,7 @@ export default function Home({ posts, companies, newworldUpdates, tag }) {
               rounded
               shadow-xl
               mt-4
+              mx-4
               hover:shadow
               md:mx-0
             "

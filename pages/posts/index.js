@@ -37,7 +37,8 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
                             shadow-xl
                             hover:shadow
                             capitalize 
-                            w-full
+                            mx-4
+                            md:mx-0
                             md:w-28
                             focus:outline-none
                             ">
@@ -53,7 +54,7 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
             </SectionPrimary>
 
             <SectionGrid>
-                <div className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4">
+                <div className="grid grid-cols-1 gap-y-10 md:gap-y-0 md:grid-cols-4 md:gap-4">
                     {fetchedAllPostButFirstThree.map((post) => (
                         <PostGrid key={post.id} post={post} />
                     ))}
