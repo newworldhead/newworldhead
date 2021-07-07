@@ -24,7 +24,7 @@ export default function PostsSearch({ term, searches }) {
 
             <div className="container mx-auto my-8">
 
-                <div className="flex flex-col md:flex-row justify-between">
+                <div className="flex flex-row justify-between">
                     <div className="mt-6 mx-4">
                         <Breadcrumbs term={term} />
                     </div>

@@ -30,7 +30,7 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
             <ReactTooltip />
             <div className="container mx-auto mb-4 relative">
 
-                <div className="my-10">
+                <div className="my-10 mx-4 md:mx-0">
                     <Breadcrumbs term={"companies"} />
                 </div>
 

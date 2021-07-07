@@ -18,7 +18,7 @@ export default function CompanySlug({ company }) {
             <Section height={"full"} px={"60"}>
 
                 <div className="flex flex-row w-full">
-                    <div className="mt-10">
+                    <div className="mt-10 mx-4 md:mx-0">
                         <Breadcrumbs />
                     </div>
                 </div>
@@ -106,7 +106,7 @@ export default function CompanySlug({ company }) {
                             flex 
                             flex-col 
                             break-words 
-                            px-10
+                            px-6
                             py-10
                         ">
                         {parse(text)}

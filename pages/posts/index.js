@@ -21,7 +21,9 @@ export default function PostsIndex({ fetchedFirstThree, fetchedAllPostButFirstTh
 
             <div className="container mx-auto mt-4 w-full md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-8 justify-center items-center ">
-                    <BreadCrumbs />
+                    <div className="mx-4 md:mx-0">
+                        <BreadCrumbs />
+                    </div>
                     <Search />
                 </div>
             </div>
