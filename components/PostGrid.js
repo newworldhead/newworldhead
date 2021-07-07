@@ -10,7 +10,7 @@ export default function PostGrid({ post }) {
         <div className={`rounded-lg bg-secondary text-white md:mx-0 md:mt-0 md:flex flex-col md:shadow-lg md:rounded-lg"}`}>
             <Link href={`/posts/${slug}`}>
                 <div className="md:w-full">
-                    <img className="rounded-lg shadow-xl cursor-pointer" src={medium.url} alt={"Hmm"} />
+                    <img className="rounded-lg shadow-xl cursor-pointer h-48 w-full" src={medium.url} alt={"Hmm"} />
                 </div>
             </Link>
             <div className="px-6 pb-6 pt-3 flex flex-col justify-between text-white">

@@ -11,7 +11,7 @@ export function parse(string) {
 
     // Mot using for the lastest update
     const markedString = marked(string)
-    const htmlParser = htmlReactParser(string)
+    const htmlParser = htmlReactParser(markedString)
 
     return htmlParser
 }
