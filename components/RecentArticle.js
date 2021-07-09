@@ -4,8 +4,8 @@ import { formatDate } from '@/utils/date'
 import { FaRegClock, FaRegUser } from 'react-icons/fa'
 import { parse } from '@/utils/parser'
 
-export default function RecentPost({ post }) {
-    const { title, author, excerpt, date, category, slug, coverimage: { formats: { medium } } } = post
+export default function RecentArticle({ article }) {
+    const { title, author, excerpt, date, category, slug, coverimage: { formats: { medium } } } = article
 
     return (
 
@@ -37,13 +37,13 @@ export default function RecentPost({ post }) {
                     </div>
                 </div>
 
-                <Link href={`/posts/${slug}`}>
+                <Link href={`/articles/${slug}`}>
                     <h2 className="capitalize cursor-pointer text-2xl font-primary text-secondary mt-8 md:text-4xl tracking-wide border-b-0 hover:text-blue-400">{title}</h2>
                 </Link>
                 <div className="mt-6 text text-primary tracking-wide">{parse(excerpt)}</div>
 
                 <div className="flex mt-6">
-                    <Link href={`/posts/${slug}`}>
+                    <Link href={`/articles/${slug}`}>
                         <a className="
                             text-white 
                             tracking-widest 

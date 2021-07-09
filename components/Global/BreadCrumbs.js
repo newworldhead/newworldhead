@@ -10,7 +10,7 @@ const convertBreadcrumb = string => {
         .replace(/ue/g, 'ü');
 };
 
-const Breadcrumbs = ({ term }) => {
+const Breadcrumbs = ({ term, force }) => {
     const router = useRouter();
     const [breadcrumbs, setBreadcrumbs] = useState(null);
 
@@ -38,16 +38,39 @@ const Breadcrumbs = ({ term }) => {
                         <a className="hover:text-blue-400">home</a>
                     </Link>
                 </li>
+
+                {/* need to find a better way */}
+                {force && (
+                    <>
+                        <p className="px-2">/</p>
+                        <li>
+                            <Link href="/articles">
+                                <a className="hover:text-blue-400">{force}</a>
+                            </Link>
+                        </li>
+                        <p className="px-2">/</p>
+                    </>
+                )}
+
                 {breadcrumbs.map((breadcrumb, i) => {
                     return (
                         <li key={breadcrumb.href} className="flex flex-row">
-                            <p className="px-2">/</p>
+                            {!force && (
+                                <p className="px-2">/</p>
+                            )}
                             <Link href={breadcrumb.href}>
-                                <a aria-current={`${i === (breadcrumbs.length - 1) && 'page'}`} className={`${i === (breadcrumbs.length - 1) ? 'cursor-default' : 'hover:text-blue-400'}`}>
-                                    {term && i === (breadcrumbs.length - 1) ? term : convertBreadcrumb(breadcrumb.breadcrumb)}
+                                <a
+                                    aria-current={`${i === (breadcrumbs.length - 1) && 'page'}`}
+                                    className={`${i === (breadcrumbs.length - 1) ? 'cursor-default' : 'hover:text-blue-400'}`}>
+                                    {
+                                        (term && i === (breadcrumbs.length - 1))
+                                            ? term
+                                            : force && i === 0
+                                                ? ''
+                                                : convertBreadcrumb(breadcrumb.breadcrumb)
+                                    }
                                 </a>
                             </Link>
-
                         </li>
                     );
                 })}

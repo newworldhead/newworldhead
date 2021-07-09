@@ -1,6 +1,6 @@
 import Link from 'next/link'
-export default function RecentPostWidget({ post }) {
-    const { coverimage: { formats: { thumbnail } }, slug, title } = post
+export default function RecentArticleWidget({ article }) {
+    const { coverimage: { formats: { thumbnail } }, slug, title } = article
     return (
         <div className="
             border-b
@@ -14,9 +14,9 @@ export default function RecentPostWidget({ post }) {
             hover:text-blue-400
             last:border-transparent
             ">
-            <Link href={`/posts/${slug}`}>
+            <Link href={`/articles/${slug}`}>
                 <a className="flex flex-row">
-                    <img className="w-32" src={thumbnail.url} alt="" />
+                    <img className="w-32 h-20" src={thumbnail.url} alt="" />
                     <h3 className="pl-2">{title}</h3>
                 </a>
             </Link>

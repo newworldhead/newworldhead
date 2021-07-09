@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
 import CompanyListItem from '@/components/CompanyListItem'
 import CompaniesSearch from '@/components/CompaniesSearch'
 import CompanyFilters from '@/components/CompanyFilters'
 import Pagination from '@/components/Pagination'
-import Breadcrumbs from "@/components/Global/BreadCrumbs";
+import Breadcrumbs from "@/components/Global/BreadCrumbs"
 import { API_URL, PER_PAGE } from '@/config/index'
 import { parseCookies } from '@/helpers/index'
 import { FaUndo } from 'react-icons/fa'
@@ -30,12 +30,12 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
             <ReactTooltip />
             <div className="container mx-auto mb-4 relative">
 
-                <div className="my-10 mx-4 md:mx-0">
-                    <Breadcrumbs term={"companies"} />
+                <div>
+                    <h1 className="font-primary text-center text-white text-4xl uppercase md:mt-10 md:text-left">All Companies</h1>
                 </div>
 
-                <div>
-                    <h1 className="font-primary text-center text-white text-4xl uppercase mb-10 md:text-left">All Companies</h1>
+                <div className="container mx-auto flex flex-row items-center bg-secondary my-6 p-4">
+                    <Breadcrumbs term={'companies'} />
                 </div>
 
                 <div className="flex flex-col items-center justify-between md:flex-row md:items-end">

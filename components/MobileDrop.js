@@ -7,8 +7,8 @@ export default function MobileDrop({ toggle }) {
     return (
         <div className={`${!toggle && 'hidden'} bg-secondary w-full py-6 md:hidden`}>
             <div className="items-center uppercase tracking-widest text-sm text-white flex flex-col">
-                <Link href="/posts">
-                    <a className="py-3 w-full text-center hover:bg-primary">News</a>
+                <Link href="/articles">
+                    <a className="py-3 w-full text-center hover:bg-primary">Articles</a>
                 </Link>
                 <Link href="/companies">
                     <a className="py-3 w-full text-center hover:bg-primary">Companies</a>

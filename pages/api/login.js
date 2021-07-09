@@ -24,9 +24,6 @@ export default async (req, res) => {
                 password
             })
         })
-
-        console.log('What the Hell');
-
         const data = await strapiRes.json()
 
         if (strapiRes.ok) {

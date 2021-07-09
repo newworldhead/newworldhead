@@ -1,8 +1,7 @@
-import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import SectionGrid from '@/components/SectionGrid'
 import Section from '@/components/Section'
-import PostGrid from '@/components/PostGrid'
+import ArticleGrid from '@/components/ArticleGrid'
 import Breadcrumbs from '@/components/Global/BreadCrumbs'
 import { API_URL } from '@/config/index'
 import qs from 'qs'
@@ -22,21 +21,16 @@ export default function PostsSearch({ term, searches }) {
                 </div>
             </Section>
 
-            <div className="container mx-auto my-8">
-
-                <div className="flex flex-row justify-between">
-                    <div className="mt-6 mx-4">
-                        <Breadcrumbs term={term} />
-                    </div>
-                    <p className="self-end text-white capitalize mt-4 md:mt-0 mx-4">{searches.length} result</p>
-                </div>
+            <div className="container mx-auto flex flex-row justify-between items-center bg-secondary p-4 my-6">
+                <Breadcrumbs term={term} />
+                <p className="self-end text-white text-base md:text-xl capitalize md:mt-0 mx-4 tracking-wider">{searches.length} result</p>
             </div>
 
             <SectionGrid>
                 <div className="md:w-full mb-10">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-10 md:gap-y-0">
-                        {searches.map((post) => (
-                            <PostGrid key={post.id} post={post} />
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-10 md:gap-y-0">
+                        {searches.map((article) => (
+                            <ArticleGrid key={article.id} article={article} />
                         ))}
                     </div>
                 </div>

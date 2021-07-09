@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { parse } from '@/utils/parser'
 import { FaSearch } from 'react-icons/fa'
-export default function RecentPostWidget({ company }) {
+export default function CompanyWidget({ company }) {
     const { slug, fraction_image, factions, name, recruiting, description } = company
     return (
         <div className="border-b-2 py-4 capitalize text-base text-white tracking-wider">

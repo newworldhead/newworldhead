@@ -287,7 +287,7 @@ export default function CompanyAdd({ company, token }) {
                     </form>
 
                     <div className={`rounded-lg shadow-lg h-full w-full hidden md:block`}>
-                        <img className="w-full h-60 md:h-96 rounded-lg" src={`${tempCoverImage ? tempCoverImage : company.coverimage ? company.coverimage.url : 'https://via.placeholder.com/800x400'}`} alt="placeholder.com/800x400" />
+                        <img className="w-full h-60 md:h-96 rounded-lg" src={`${tempCoverImage ? tempCoverImage : company.coverimage ? company.coverimage.url : '/images/backgroundImages/NW_The Ancients_5760x2160.jpg'}`} alt="placeholder.com/800x400" />
                     </div>
 
                     <div className="py-10 md:hidden"></div>

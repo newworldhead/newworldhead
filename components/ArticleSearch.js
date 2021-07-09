@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-export default function PostSearchComponent() {
+export default function ArticleSearchComponent() {
     const [term, setTerm] = useState('')
 
     const router = useRouter()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        router.push(`/posts/search?term=${term}`)
+        router.push(`/articles/search?term=${term}`)
         setTerm('')
     }
 
@@ -18,7 +18,7 @@ export default function PostSearchComponent() {
             <input
                 type="text"
                 value={term}
-                placeholder="Search Posts"
+                placeholder="Search Articles"
                 onChange={(e) => setTerm(e.target.value)}
                 className="
                     py-2 

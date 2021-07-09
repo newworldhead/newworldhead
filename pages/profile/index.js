@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import router from 'next/router'
 import MainLayout from "@/components/MainLayout"
 import Section from "@/components/Section"
@@ -8,7 +8,6 @@ import { API_URL } from '@/config/index'
 import { parseCookies } from '@/helpers/index'
 
 import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Dashboard({ token, user, company, companyCount, requestedRemoval }) {
 

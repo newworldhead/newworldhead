@@ -1,19 +1,27 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import CategoryLabel from './CategoryLabel'
 import { formatDate } from '@/utils/date'
 import { FaRegClock, FaRegUser } from 'react-icons/fa'
+import { RiPushpin2Fill } from 'react-icons/ri'
 
-export default function PostHighlights({ firstThree }) {
+export default function ArticleHighlights({ firstThree }) {
+
+    const ReactTooltip = dynamic(() => import("react-tooltip"), {
+        ssr: false,
+    });
+
     return (
         <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2 md:gap-2 md:h-auto">
 
-            {firstThree.map((post, index) => {
+            {firstThree.map((article, index) => {
 
-                const { slug, title, date, category: { name }, author, coverimage: { formats: { medium } } } = post
+                const { slug, title, date, category: { name }, author, coverimage: { formats: { medium } } } = article
 
                 return (
 
-                    <div key={post.id} className={` ${index === 0 && "col-span-2 row-span-2"} overflow-hidden cursor-pointer relative`} >
+                    <div key={article.id} className={` ${index === 0 && "col-span-2 row-span-2"} overflow-hidden cursor-pointer relative`} >
+                        <ReactTooltip />
 
                         {index === 0 && (
                             <div className="absolute bg-black bottom-0 opacity-70 p-2 m-4">
@@ -34,6 +42,11 @@ export default function PostHighlights({ firstThree }) {
                             </div>
                         )}
 
+                        <div
+                            data-tip="Pinned"
+                            className="absolute text-white text-xl top-4 left-4">
+                            <RiPushpin2Fill />
+                        </div>
 
                         <div className={`absolute m-2 right-0`}> <CategoryLabel>{name}</CategoryLabel></div>
 
@@ -42,7 +55,7 @@ export default function PostHighlights({ firstThree }) {
                         </div>
 
 
-                        <Link href={`/posts/${slug}`}>
+                        <Link href={`/articles/${slug}`}>
                             <img className="h-full w-full rounded-lg shadow-lg" src={medium.url} alt="" />
                         </Link>
 

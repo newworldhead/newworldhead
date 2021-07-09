@@ -37,8 +37,8 @@ export default function Header({ toggle, setToggle }) {
                 </div>
 
                 <div className="hidden items-center uppercase tracking-widest text-sm md:flex md:flex-row ">
-                    <Link href="/posts">
-                        <a className="py-3 px-4 hover:bg-primary">News</a>
+                    <Link href="/articles">
+                        <a className="py-3 px-4 hover:bg-primary">Articles</a>
                     </Link>
                     <Link href="/companies">
                         <a className="py-3 px-4 hover:bg-primary">Companies</a>

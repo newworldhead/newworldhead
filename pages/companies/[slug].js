@@ -1,13 +1,18 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
 import Breadcrumbs from '@/components/Global/BreadCrumbs'
-import { FaInfo } from 'react-icons/fa'
+import { AiOutlineWarning } from 'react-icons/ai'
 import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
 
 export default function CompanySlug({ company }) {
-    const { name, description: text, factions, recruiting, region, language, playstyle, size, coverimage, logo } = company
+    const ReactTooltip = dynamic(() => import("react-tooltip"), {
+        ssr: false,
+    });
+
+    const { name, description: text, factions, recruiting, region, language, playstyle, coverimage, logo } = company
 
     return (
         <MainLayout
@@ -15,18 +20,17 @@ export default function CompanySlug({ company }) {
             description={"The best place for news and everything New World"}
             className="relative"
         >
+            <ReactTooltip />
             <Section height={"full"} px={"60"}>
 
-                <div className="flex flex-row w-full">
-                    <div className="mt-10 mx-4 md:mx-0">
-                        <Breadcrumbs />
-                    </div>
+                <div className="container mx-auto flex flex-row items-center bg-secondary my-6 p-4">
+                    <Breadcrumbs />
                 </div>
 
                 <div className="bg-white  h-auto relative rounded-xl my-4">
 
                     <div className="rounded-lg shadow-lg hidden md:h-96 md:block">
-                        <img className="h-full w-full rounded-lg" src={coverimage ? coverimage.url : 'https://via.placeholder.com/800x400'} alt="" />
+                        <img className="h-full w-full rounded-lg" src={coverimage ? coverimage.url : '/images/backgroundImages/NW_The Ancients_5760x2160.jpg'} alt="" />
                     </div>
 
                     <div className="rounded-lg shadow-xl bg-white inline-block absolute top-6 left-6 md:top-80 md:left-20 cursor-pointer hover:shadow">
@@ -34,20 +38,21 @@ export default function CompanySlug({ company }) {
                     </div>
 
                     <Link href="/">
-                        <a className=" 
-                                text-white
+                        <a
+                            data-tip="Report This Profile"
+                            className=" 
+                                text-red-400
+                                text-3xl
                                 absolute
                                 top-0
                                 right-0
-                                p-2
+                                p-1
                                 m-4
                                 rounded
                                 shadow-xl
-                                bg-blue-400 
-                                border-blue-400 
                                 hover:shadow
                             ">
-                            <FaInfo />
+                            <AiOutlineWarning />
                         </a>
                     </Link>
 
