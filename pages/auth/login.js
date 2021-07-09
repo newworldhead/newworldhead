@@ -6,7 +6,7 @@ import AuthContext from 'context/AuthContext'
 import { parseCookies } from '@/helpers/index'
 import Loading from '@/components/Loading'
 import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { API_URL } from '@/config/index'
 
 export default function LoginAuth() {
     const { login, error, user } = useContext(AuthContext)
@@ -17,6 +17,14 @@ export default function LoginAuth() {
     const handleSubmit = (e) => {
         e.preventDefault()
         login({ email, password })
+    }
+
+    const handleGoogle = () => {
+        const res = fetch(`${API_URL}/connect/google`)
+
+        if (!res) {
+            toast.error("Could Not Connect to Google")
+        }
     }
 
     useEffect(() => {
@@ -136,6 +144,7 @@ export default function LoginAuth() {
 
                                 {/* google signin */}
                                 <button
+                                    onClick={handleGoogle}
                                     className="
                                         bg-white
                                         text-secondary
