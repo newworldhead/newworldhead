@@ -10,6 +10,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
     "cookie": "^0.4.1",
+    "disqus-react": "^1.1.1",
     "html-react-parser": "^1.2.6",
     "marked": "^2.1.0",
     "next": "10.2.3",

@@ -5,6 +5,7 @@ import CategoryWidget from '@/components/CategoryWidget'
 import RecentArticleWidget from '@/components/RecentArticleWidget'
 import Breadcrumbs from '@/components/Global/BreadCrumbs'
 import IYoutube from '@/components/Global/IYoutube'
+import Disqus from '@/components/Global/Disqus'
 import { API_URL } from '@/config/index'
 import { formatDate } from '@/utils/date'
 import { parse, timeByWordCount } from '@/utils/index'
@@ -51,6 +52,10 @@ export default function ArticleSlug({ article, articles, categories }) {
                             {embedId && <IYoutube embedId={embedId} />}
 
                         </div>
+
+                        <div className="px-10 py-6">
+                            <Disqus article={article} />
+                        </div>
                     </div>
 
                     <div className="md:w-1/4">
@@ -66,13 +71,10 @@ export default function ArticleSlug({ article, articles, categories }) {
                                 {categories.map((category) => (
                                     <CategoryWidget key={category.id} category={category} />
                                 ))}
-
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </Section>
         </MainLayout>
     )

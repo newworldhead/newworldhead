@@ -20,7 +20,9 @@ module.exports = {
         "register-section": "url('/images/backgroundImages/NW_Forest Archer_8000x3840.jpg')",
         "profile-section": "url('/images/backgroundImages/Shipping Dock.jpeg')",
         "home-second-section": "url('/images/backgroundImages/new_world_new_screen_02.jpg')",
-        "home-third-section": "url('/images/backgroundImages/WOR_0120_v005_FINAL2.jpg')"
+        "home-third-section": "url('/images/backgroundImages/WOR_0120_v005_FINAL2.jpg')",
+        "under-construction-section": "url('/images/backgroundImages/Cursed_TypeC_01.jpg')",
+        "under-construction-builds-section": "url('/images/backgroundImages/Combat_PVP_4.jpg')"
 
       },
       backgroundColor: {
