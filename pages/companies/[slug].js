@@ -3,16 +3,29 @@ import Link from 'next/link'
 import MainLayout from '@/components/MainLayout'
 import Section from '@/components/Section'
 import Breadcrumbs from '@/components/Global/BreadCrumbs'
+import LikeMe from '@/components/Global/LikeMe'
+import { parseCookies } from '@/helpers/index'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { API_URL } from '@/config/index'
 import { parse } from '@/utils/parser'
 
-export default function CompanySlug({ company }) {
+export default function CompanySlug({ company, user, token, iLike }) {
+
     const ReactTooltip = dynamic(() => import("react-tooltip"), {
         ssr: false,
     });
 
-    const { name, description: text, factions, recruiting, region, language, playstyle, coverimage, logo } = company
+    const {
+        name,
+        description: text,
+        factions,
+        recruiting,
+        region,
+        language,
+        playstyle,
+        coverimage,
+        logo
+    } = company
 
     return (
         <MainLayout
@@ -27,14 +40,14 @@ export default function CompanySlug({ company }) {
                     <Breadcrumbs />
                 </div>
 
-                <div className="bg-white  h-auto relative rounded-xl my-4">
+                <div className="bg-white h-auto relative rounded-xl my-4">
 
                     <div className="rounded-lg shadow-lg hidden md:h-96 md:block">
                         <img className="h-full w-full rounded-lg" src={coverimage ? coverimage.url : '/images/backgroundImages/NW_The Ancients_5760x2160.jpg'} alt="" />
                     </div>
 
                     <div className="rounded-lg shadow-xl bg-white inline-block absolute top-6 left-6 md:top-80 md:left-20 cursor-pointer hover:shadow">
-                        <img className="w-32 border-2" src={logo ? logo.url : 'https://via.placeholder.com/150x150'} alt={name} />
+                        <img className="w-32 h-32 border-2" src={logo ? logo.url : 'https://via.placeholder.com/150x150'} alt={name} />
                     </div>
 
                     <Link href="/">
@@ -55,6 +68,16 @@ export default function CompanySlug({ company }) {
                             <AiOutlineWarning />
                         </a>
                     </Link>
+
+                    <div>
+                        {/* may change this to a single object, but thinking of changing the hole thing */}
+                        <LikeMe
+                            company={company}
+                            user={user}
+                            token={token}
+                            iLike={iLike}
+                        />
+                    </div>
 
                     <div className="mx-4 md:w-5/6 md:mx-auto">
                         <div className="flex flex-row items-center justify-between">
@@ -123,14 +146,61 @@ export default function CompanySlug({ company }) {
     )
 }
 
-export async function getServerSideProps({ query: { slug } }) {
+export async function getServerSideProps({ query: { slug }, req }) {
 
-    const res = await fetch(`${API_URL}/companies?slug=${slug}`)
-    const companies = await res.json()
+    let fetchedUser = null
+    const { token } = parseCookies(req)
+
+    if (token) {
+
+        // fetch logged in user
+        const fetchUser = await fetch(`${API_URL}/users/me`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        fetchedUser = await fetchUser.json()
+    }
+
+    // fetch company
+    const fetchCompany = await fetch(`${API_URL}/companies?slug=${slug}`)
+    const fetchedCompany = await fetchCompany.json()
+
+
+    // get like
+    let currentLikeState = null
+    if (fetchedUser) {
+        currentLikeState = fetchedCompany[0].likes.find((item) => item.user === fetchedUser.id)
+    }
+
+
+    if (fetchedUser) {
+        if (!currentLikeState) {
+            // yes this is weird, create a like on the user ready
+            console.log("POST now");
+            await fetch(`${API_URL}/likes`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    liked: false,
+                    company: fetchedCompany[0].id
+                })
+            })
+        }
+    }
+
+
 
     return {
         props: {
-            company: companies[0]
+            company: fetchedCompany[0],
+            user: fetchedUser,
+            token: token || null,
+            iLike: currentLikeState
         }
     }
 }

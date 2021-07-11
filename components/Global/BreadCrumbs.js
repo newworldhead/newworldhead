@@ -32,7 +32,7 @@ const Breadcrumbs = ({ term, force }) => {
     }
     return (
         <nav aria-label="breadcrumbs">
-            <ol className="flex flex-row text-white capitalize text-base md:text-xl tracking-wide">
+            <ol className="flex flex-row text-white capitalize tracking-wide">
                 <li>
                     <Link href="/">
                         <a className="hover:text-blue-400">home</a>
