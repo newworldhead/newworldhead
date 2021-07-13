@@ -3,9 +3,10 @@ import Link from 'next/link'
 export default function CategoryLabel({ children }) {
 
     const colorKey = {
-        Guides: 'blue-400',
+        Crafting: 'blue-400',
         News: 'green-600',
-        Updates: 'yellow-500',
+        PVP: 'yellow-500',
+        Weapons: 'purple-400'
     }
 
     return (

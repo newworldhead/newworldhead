@@ -11,7 +11,7 @@ import { formatDate } from '@/utils/date'
 import { parse, timeByWordCount } from '@/utils/index'
 
 export default function ArticleSlug({ article, articles, categories }) {
-    const { title, date, category: { name }, body, author, coverimage, embedId } = article
+    const { title, date, category: { name }, excerpt, body, author, coverimage, embedId } = article
 
     // counting the word count
     const timeToRead = timeByWordCount(body)
@@ -19,7 +19,7 @@ export default function ArticleSlug({ article, articles, categories }) {
     return (
         <MainLayout
             title={`${title} | newworldhead.com`}
-            description={"The best place for news and everything New World"}
+            description={excerpt}
         >
 
             <Section height={"auto"} place={"top"} >
@@ -30,22 +30,22 @@ export default function ArticleSlug({ article, articles, categories }) {
 
                 <div className="flex flex-col mb-4 md:mx-4 md:flex-row md:mx-0">
 
-                    <div className="md:w-3/4 bg-white rounded-lg">
+                    <div className="md:w-3/4 bg-secondary rounded-lg">
                         <div className="w-full shadow-xl md:mx-0 md:flex">
                             <img className="rounded-lg shadow-xl" src={coverimage.url} alt={title} />
                         </div>
                         <div className="p-2 md:p-6">
-                            <h2 className="text-3xl md:text-5xl leading-snug font-primary text-primary text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
+                            <h2 className="text-3xl md:text-5xl leading-snug font-primary text-white text-center capitalize tracking-normal py-10 md:text-6xl">{title}</h2>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
-                            <div className="flex flex-col gap-3 md:flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold tracking-wide">
+                            <div className="flex flex-col gap-3 md:flex-row justify-between items-center py-6 max-w-sm mx-auto font-semibold text-white tracking-wide">
                                 <h2>{author}</h2>
                                 <h2>{formatDate(date)}</h2>
                                 <h2>{timeToRead} Min Read</h2>
                                 <CategoryLabel>{name}</CategoryLabel>
                             </div>
-                            <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
+                            <div className="border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
 
-                            <div id="article" className="mt-6 md:p-0 md:mx-4 text-secondary tracking-wide">
+                            <div id="article" className="mt-6 md:p-0 md:mx-4 tracking-wide text-white text-base font-sans md:mt-20">
                                 {parse(body)}
                             </div>
 

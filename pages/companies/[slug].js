@@ -178,7 +178,6 @@ export async function getServerSideProps({ query: { slug }, req }) {
     if (fetchedUser) {
         if (!currentLikeState) {
             // yes this is weird, create a like on the user ready
-            console.log("POST now");
             await fetch(`${API_URL}/likes`, {
                 method: 'POST',
                 headers: {
