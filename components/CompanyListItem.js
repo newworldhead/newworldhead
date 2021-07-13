@@ -1,8 +1,9 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import CompanyColorLabel from './CompanyColorLabel'
+import { FaHeart } from 'react-icons/fa'
 export default function CompanyListItem({ company }) {
-    const { logo, name, factions, slug, recruiting, playstyle, region, language } = company
+    const { logo, name, factions, slug, recruiting, playstyle, region, language, likes } = company
+
     return (
         <>
             <tr className={`flex items-center bg-primary`}>
@@ -43,6 +44,15 @@ export default function CompanyListItem({ company }) {
                 <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white capitalize">
                     {language}
                 </td>
+                <td className="hidden md:flex flex-1 px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <div className="flex flex-row items-center gap-4">
+                        {likes}
+                        <div className="text-blue-400">
+                            <FaHeart />
+                        </div>
+                    </div>
+                </td>
+
             </tr >
         </>
     )

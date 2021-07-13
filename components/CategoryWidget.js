@@ -7,8 +7,6 @@ export default function CategoryWidget({ category }) {
             border-gray-400 
             py-3 
             cursor-pointer 
-            flex 
-            justify-between 
             capitalize 
             text-base 
             text-white 
@@ -17,9 +15,12 @@ export default function CategoryWidget({ category }) {
             last:border-transparent
         `}>
             <Link href={`/category/${category.name}`}>
-                <p>{category.name}</p>
+                <div className="flex flex-row items-center justify-between w-full">
+                    <p>{category.name}</p>
+                    <p className="text-sm">({category.posts.length})</p>
+                </div>
             </Link>
-            <p className="text-sm">({category.posts.length})</p>
+
         </div>
     )
 }

@@ -61,7 +61,7 @@ export async function getServerSideProps({ query: { page = 1 } }) {
     const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE
 
     // fetch pinned articles
-    const fetchPinnedArticles = await fetch(`${API_URL}/posts?_limit=3&_sort=date:ASC&_pinned=true`)
+    const fetchPinnedArticles = await fetch(`${API_URL}/posts?_limit=3&_sort=date:DESC&_pinned=true`)
     const fetchedPinnedArticles = await fetchPinnedArticles.json()
 
     // fetch all articles but the first three in descending order

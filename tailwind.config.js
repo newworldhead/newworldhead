@@ -38,6 +38,11 @@ module.exports = {
         "covenant": "#977234"
 
       },
+      gradientColorStops: {
+        "top": "#0f244f",
+        "middle": "#103178",
+        "bottom": "#0e60b6"
+      },
       height: {
         "hero-mb": "700px",
         "hero": "600px",
@@ -48,7 +53,8 @@ module.exports = {
       },
       borderColor: {
         "primary": "#272624",
-        "secondary": "#232220"
+        "secondary": "#232220",
+        "button": "#292e30"
       }
     },
   },

@@ -48,10 +48,10 @@ export default function LikeMe({ company, user, token, iLike }) {
                     cursor-pointer 
                     absolute
                     p-1
-                    mt-4
+                    md:w-0
                     rounded
                     shadow-xl
-                    top-0
+                    top-4
                     right-16 
                     md:left-4
                 ">
@@ -61,13 +61,13 @@ export default function LikeMe({ company, user, token, iLike }) {
                         className="focus:outline-none"
                     >
                         {like ? (
-                            <div data-tip="Dislike">
+                            <span data-tip="Dislike">
                                 <FaHeart />
-                            </div>
+                            </span>
                         ) : (
-                            <div data-tip="Like">
+                            <span data-tip="Like">
                                 <FaRegHeart />
-                            </div>
+                            </span>
                         )}
                     </button>
                 </div>

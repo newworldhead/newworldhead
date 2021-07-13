@@ -1,6 +1,5 @@
 import MainLayout from '@/components/MainLayout'
 import SectionGrid from '@/components/SectionGrid'
-import Section from '@/components/Section'
 import ArticleGrid from '@/components/ArticleGrid'
 import CategoryWidget from '@/components/CategoryWidget'
 import RecentArticleWidget from '@/components/RecentArticleWidget'
@@ -13,14 +12,6 @@ export default function NewsCategoryName({ categories, category, articles }) {
             title={`Searching ${category.name} | newworldhead.com`}
             description={"The best place for news and everything New World"}
         >
-
-            <Section image={"category-section"} height={'medium'} positon={"bottom"}>
-                <div className="flex justify-center items-center">
-                    <h1 className="capitalize text-white text-4xl md:text-5xl font-primary text-center">
-                        You are searching: {category.name}
-                    </h1>
-                </div>
-            </Section>
 
             <div className="container mx-auto flex flex-row items-center bg-secondary p-4 my-6">
                 <Breadcrumbs force={"articles"} />

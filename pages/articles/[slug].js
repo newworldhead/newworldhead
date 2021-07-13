@@ -45,14 +45,14 @@ export default function ArticleSlug({ article, articles, categories }) {
                             </div>
                             <div className=" border border-b-1 border-gray-100 w-4/5 mx-auto"></div>
 
-                            <div id="article" className="mt-6 p-2 md:p-0 md:mx-4 text-secondary tracking-wide">
+                            <div id="article" className="mt-6 md:p-0 md:mx-4 text-secondary tracking-wide">
                                 {parse(body)}
                             </div>
 
                             {embedId && <IYoutube embedId={embedId} />}
 
                         </div>
-
+                        <div className="my-10"></div>
                         <div className="px-10 py-6">
                             <Disqus article={article} />
                         </div>

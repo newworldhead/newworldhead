@@ -128,7 +128,7 @@ export default function Home({ articles, companies, newworldUpdates, tag }) {
 export async function getServerSideProps() {
 
   // fetch articles
-  const fetchArticles = await fetch(`${API_URL}/posts?_sort=date:DESC&_limit=12`)
+  const fetchArticles = await fetch(`${API_URL}/posts?_sort=date:DESC&_limit=8`)
   let fetchedArticles = await fetchArticles.json()
   if (fetchedArticles.statusCode === 403) {
     fetchedArticles = []

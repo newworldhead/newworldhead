@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import dynamic from "next/dynamic"
 import { useRouter } from 'next/router'
 import MainLayout from '@/components/MainLayout'
@@ -11,7 +12,7 @@ import { parseCookies } from '@/helpers/index'
 import { FaUndo } from 'react-icons/fa'
 import qs from 'qs'
 
-export default function CompanyIndex({ companies, page, companiesCount, userHasCompany }) {
+export default function CompanyIndex({ companies, page, companiesCount }) {
 
     const ReactTooltip = dynamic(() => import("react-tooltip"), {
         ssr: false,
@@ -90,12 +91,18 @@ export default function CompanyIndex({ companies, page, companiesCount, userHasC
                                             <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Playstyle</th>
                                             <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Region</th>
                                             <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Language</th>
+                                            <th scope="col" className="hidden flex-1 md:flex px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-widest">Likes</th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-400">
-                                        {companies.map((company) =>
-                                            <CompanyListItem key={company.id} companiesCount={companiesCount} company={company} />
-                                        )}
+                                        {companies.map((company) => {
+                                            return (
+                                                <CompanyListItem
+                                                    key={company.id}
+                                                    company={company}
+                                                />
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
@@ -166,6 +173,19 @@ export async function getServerSideProps({ req, query: { term, page = 1, faction
         count = companies.length
     }
 
+    // Trying to get it to sort by most likes, seems a little over the top
+    companies.map((company) => {
+        company.likes = company.likes.filter((item) => {
+            return item.liked === true
+
+        })
+    })
+    companies.map((company) => {
+        company.likes = company.likes.length
+    })
+
+    companies.sort((a, b) => b.likes - a.likes)
+    
     return {
         props: {
             companies,

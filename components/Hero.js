@@ -2,7 +2,7 @@ import EmailSubscriptions from "./Forms/EmailSubscriptions"
 
 export default function Hero() {
     return (
-        <section className="bg-hero-mb bg-cover h-hero-mb bg-bottom bg-no-repeat flex flex-col md:h-hero md:bg-hero">
+        <section className="hidden bg-hero-mb bg-cover h-hero-mb bg-bottom bg-no-repeat md:flex md:flex-col md:h-hero md:bg-hero">
             <div className="h-screen bg-black bg-opacity-0 w-full h-full flex items-center md:bg-opacity-20">
                 <div className="container mx-auto md:mx-8 md:mx-auto">
                     <h1 className="text-4xl text-white text-center font-primary md:text-left md:text-7xl">New World Head</h1>
