@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      inset: {
+        '1/5': '16%',
+      },
       fontFamily: {
         'primary': ['"IM Fell DW Pica"', 'Times', '"Times Roman"', '"Times New Roman"', 'serif'],
         'secondary': ['"Poppins"', 'sans-serif']

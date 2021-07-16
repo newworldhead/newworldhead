@@ -10,7 +10,7 @@ export default function CountDown() {
     let interval = useRef()
 
     useEffect(() => {
-        const countDownDate = new Date('July 20, 2021 00:00:00').getTime()
+        const countDownDate = new Date('July 20, 2021 16:00:00').getTime()
 
         interval = setInterval(() => {
             const now = new Date().getTime()

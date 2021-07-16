@@ -134,7 +134,6 @@ export async function getServerSideProps() {
     fetchedArticles = []
   }
 
-
   // fetch companies
   const fetchCompanies = await fetch(`${API_URL}/companies?_sort=created_at:DESC&_limit=24&name_ne=`)
   let fetchedCompanies = await fetchCompanies.json()

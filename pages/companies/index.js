@@ -32,7 +32,7 @@ export default function CompanyIndex({ companies, page, companiesCount }) {
             <div className="container mx-auto mb-4 relative">
 
                 <div>
-                    <h1 className="font-primary text-center text-white text-4xl uppercase md:mt-10 md:text-left">All Companies</h1>
+                    <h1 className="font-primary text-center text-white text-4xl uppercase mt-10 md:text-left">All Companies</h1>
                 </div>
 
                 <div className="container mx-auto flex flex-row items-center bg-secondary my-6 p-4">
@@ -185,7 +185,7 @@ export async function getServerSideProps({ req, query: { term, page = 1, faction
     })
 
     companies.sort((a, b) => b.likes - a.likes)
-    
+
     return {
         props: {
             companies,
